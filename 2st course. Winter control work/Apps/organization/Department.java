@@ -65,7 +65,7 @@ public class Department {
 	/**
 	 * Метод, возвращающий суммарную зарплату всех работников, относящихся к данному подразделению
 	 */
-	public double getEmployeesSalary() {
+	public double getEmployeesSalary() {	
 		double employeesSalary = 0;
 		for (Employee employee : this.employees) {
 			employeesSalary += employee.getSalary();
@@ -78,11 +78,11 @@ public class Department {
 	 */
 	public Employee getEployeeByInitials(String surname, String name) {
 		for (Employee employee : this.employees) {
-            if (employee.getName().equals(name) && employee.getSurname().equals(surname)) {
-                return employee;
-            }
-        }
-        return null;
+			if (employee.getName().equals(name) && employee.getSurname().equals(surname)) {	
+				return employee;
+			}	
+		}	
+		return null;
 	}
 	
 	/**
@@ -90,21 +90,20 @@ public class Department {
 	 * (принимает в качестве входных параметров фамилию, имя, должность работника, 
 	 * которого нужно удалить, удаляет соответствующий этим данным элемент из массива работников)
 	 */
-	public void fireEmployee(String surname, String name, String position) {
-        for (int i = 0; i < this.employees.length; i++) {
-            Employee employee = this.employees[i];
+	public void fireEmployee(String surname, String name, String position) {	
+		for (int i = 0; i < this.employees.length; i++) {	
+			Employee employee = this.employees[i];
             if (employee.getName().equals(name) && employee.getSurname().equals(surname)
                     && employee.getPosition().equals(position)) {
+					Employee[] newEmployees = new Employee[this.employees.length - 1];
+					System.arraycopy(this.employees, 0, newEmployees, 0, i);
+					if (this.employees.length != i) {
+						System.arraycopy(this.employees, i + 1, newEmployees, i,
+								this.employees.length - i - 1);
+					}
+					this.employees = newEmployees;
 
-                Employee[] newEmployees = new Employee[this.employees.length - 1];
-                System.arraycopy(this.employees, 0, newEmployees, 0, i);
-                if (this.employees.length != i) {
-                    System.arraycopy(this.employees, i + 1, newEmployees, i,
-                            this.employees.length - i - 1);
-                }
-                this.employees = newEmployees;
-
-                return;
+					return;
             }
         }
     }
