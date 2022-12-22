@@ -93,59 +93,58 @@ public class Department {
 	public void fireEmployee(String surname, String name, String position) {	
 		for (int i = 0; i < this.employees.length; i++) {	
 			Employee employee = this.employees[i];
-            if (employee.getName().equals(name) && employee.getSurname().equals(surname)
-                    && employee.getPosition().equals(position)) {
-					Employee[] newEmployees = new Employee[this.employees.length - 1];
-					System.arraycopy(this.employees, 0, newEmployees, 0, i);
-					if (this.employees.length != i) {
-						System.arraycopy(this.employees, i + 1, newEmployees, i,
-								this.employees.length - i - 1);
-					}
-					this.employees = newEmployees;
-
-					return;
-            }
-        }
-    }
+            		if (employee.getName().equals(name) && employee.getSurname().equals(surname)
+                    		&& employee.getPosition().equals(position)) {
+				Employee[] newEmployees = new Employee[this.employees.length - 1];
+				System.arraycopy(this.employees, 0, newEmployees, 0, i);
+				if (this.employees.length != i) {
+					System.arraycopy(this.employees, i + 1, newEmployees, i,
+						this.employees.length - i - 1);
+				}
+				this.employees = newEmployees;
+				return;
+            		}
+        	}
+    	}
 	
 	/**
 	 * Метод приема работника на работу 
 	 * (принимает в качестве входных параметров ссылку  на экземпляр класса Employee, 
 	 * расширяет массив работников путем добавления нового элемента в конец массива)
 	 */
-    public void hireEmployee(Employee newEmployee) {
-        Employee[] newEmployees = new Employee[this.employees.length + 1];
-        System.arraycopy(this.employees, 0, newEmployees, 0, this.employees.length);
-        newEmployees[this.employees.length] = newEmployee;
-       
-        this.employees = newEmployees;
-    }
+	 public void hireEmployee(Employee newEmployee) {
+		 Employee[] newEmployees = new Employee[this.employees.length + 1];
+		 System.arraycopy(this.employees, 0, newEmployees, 0, this.employees.length);
+		 newEmployees[this.employees.length] = newEmployee;
+
+		 this.employees = newEmployees;
+	 }
 	
 	/**
 	 * Метод, возвращающий массив работников отдела
 	 */
-    public Employee[] getEmployees() {
-        Employee[] resultEmployees = new Employee[this.employees.length];
-        System.arraycopy(this.employees, 0, resultEmployees, 0, this.employees.length);
+    	public Employee[] getEmployees() {
+        	Employee[] resultEmployees = new Employee[this.employees.length];
+        	System.arraycopy(this.employees, 0, resultEmployees, 0, this.employees.length);
         
-        return resultEmployees;
-    }
+        	return resultEmployees;
+    	}
 	
 	/**
 	 * Метод, возвращающий массив работников отдела, отсортированный по фамилиям 
 	 * (и если одинаковые фамилии – то по именам)
 	 */
-    public Employee[] getSortedEmployees() {
-        Employee[] sortedEmployees = this.getEmployees();
-        Arrays.sort(sortedEmployees, new Comparator<Employee>() {
-            @Override
-            public int compare(Employee employeeX, Employee employeeY) {
-                if (employeeX.getSurname().equals(employeeY.getSurname())) {
-                    return employeeX.getName().compareTo(employeeY.getName());
-                }
-                return employeeX.getSurname().compareTo(employeeY.getSurname());
-            }
-        });
-        return sortedEmployees;
-    }
+	public Employee[] getSortedEmployees() {
+		Employee[] sortedEmployees = this.getEmployees();
+		Arrays.sort(sortedEmployees, new Comparator<Employee>() {
+		    @Override
+		    public int compare(Employee employeeX, Employee employeeY) {
+			if (employeeX.getSurname().equals(employeeY.getSurname())) {
+			    return employeeX.getName().compareTo(employeeY.getName());
+			}
+			return employeeX.getSurname().compareTo(employeeY.getSurname());
+		    }
+		});
+		return sortedEmployees;
+	    }
 }
