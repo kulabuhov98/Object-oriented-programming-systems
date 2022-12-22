@@ -42,79 +42,79 @@ public class Employee {
 	private String surname;
 	
 	/**
-     * Конструктор может принимать имя и фамилию
-     */
-    public Employee(String name, String surname) {
-        this.name = name;
-        this.surname = surname;
+     	* Конструктор может принимать имя и фамилию
+     	*/
+    	public Employee(String name, String surname) {
+        	this.name = name;
+        	this.surname = surname;
 
-        this.setPosition(Employee.DEFAULT_POSITION);
-        this.setSalary(Employee.DEFAULT_SALARY);
-    }
+        	this.setPosition(Employee.DEFAULT_POSITION);
+        	this.setSalary(Employee.DEFAULT_SALARY);
+    	}
 	
-    /**
-     * Конструктор может принимать имя, фамилию, должность, жалование
-     */
-    public Employee(String name, String surname, String position, Double salary) {
-        this.name = name;
-        this.surname = surname;
-        this.position = position;
-        this.salary = salary;
-    }
+	/**
+	* Конструктор может принимать имя, фамилию, должность, жалование
+	*/
+	public Employee(String name, String surname, String position, Double salary) {
+		this.name = name;
+		this.surname = surname;
+		this.position = position;
+		this.salary = salary;
+	}
     
-    /**
-     * Метод получения имени
-     */
-    public String getName() {
-    	return name;
-    }
+	/**
+	* Метод получения имени
+	*/
+	public String getName() {
+		return name;
+	}
     
-    /**
-     * Метод изменения имени
-     */
-    public void setName(String name) {
-    	this.name = name;
-    }
+	/**
+	* Метод изменения имени
+	*/
+	public void setName(String name) {
+		this.name = name;
+	}
     
-    /**
-     * Метод получения фамилии
-     */
-    public String getSurname() {
-    	return surname;
-    }
+	/**
+	* Метод получения фамилии
+	*/
+	public String getSurname() {
+		return surname;
+	}
     
-    /**
-     * Метод изменения фамилии
-     */
-    public void setSurname(String surname) {
-    	this.surname = surname;
-    }
+	/**
+	* Метод изменения фамилии
+	*/
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
     
-    /**
-     * Метод получения должности
-     */
-    public String getPosition() {
-    	return position;
-    }
+	/**
+	* Метод получения должности
+	*/
+	public String getPosition() {
+		return position;
+	}
     
-    /**
-     * Метод изменения должности
-     */
-    public void setPosition(String position) {
-    	this.position = position;
-    }
+	/**
+	* Метод изменения должности
+	*/
+	public void setPosition(String position) {
+		this.position = position;
+	}
     
-    /**
-     * Метод получения жалования
-     */
-    public double getSalary() {
-    	return salary;
-    }
+	/**
+	* Метод получения жалования
+	*/
+	public double getSalary() {
+		return salary;
+	}
     
-    /**
-     * Метод изменения жалования
-     */
-    public void setSalary(Double salary) {
-    	this.salary = salary;
-    }
+	/**
+	* Метод изменения жалования
+	*/
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
 }
