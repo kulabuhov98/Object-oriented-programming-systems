@@ -36,10 +36,3 @@ build/
 
 ### Mac OS ###
 .DS_Store
-
-### KULABUHOV98 ###
-.idea
-.mvn
-mvnw
-mvnw.cmd
-pom.xml
