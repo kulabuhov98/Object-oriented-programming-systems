@@ -40,3 +40,6 @@ build/
 ### KULABUHOV98 ###
 .idea
 .mvn
+mvnw
+mvnw.cmd
+pom.xml
