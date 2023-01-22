@@ -25,6 +25,7 @@ target/
 /nbproject/private/
 /nbbuild/
 /dist/
+
 /nbdist/
 /.nb-gradle/
 build/
@@ -36,3 +37,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### KULABUHOV98 ###
+.idea
+.mvn
+out
