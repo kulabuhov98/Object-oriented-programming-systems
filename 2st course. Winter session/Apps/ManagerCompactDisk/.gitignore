@@ -11,9 +11,6 @@ target/
 *.iws
 *.iml
 *.ipr
-encodings.xml
-misc.xml
-vcs.xml
 
 ### Eclipse ###
 .apt_generated
@@ -39,3 +36,7 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### KULABUHOV98 ###
+.idea
+.mvn
