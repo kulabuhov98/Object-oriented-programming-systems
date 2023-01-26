@@ -62,6 +62,10 @@ public class CategoriesController implements Initializable {
     private TextField textFieldId;
 
     @FXML
+    /**
+     * Добавление категории в базу данных с помощью метода createCategory.
+     * Выполняется проверка на корректность заполнение поля.
+     */
     void buttonCreate(ActionEvent event) throws SQLException {
         if (textAreaCategory.getText().isEmpty()) {
             HelperService.dialogs(Alert.AlertType.ERROR, "Категории информации",
@@ -73,6 +77,10 @@ public class CategoriesController implements Initializable {
     }
 
     @FXML
+    /**
+     * Удаление категории из базы данных с помощью метода deleteCategory.
+     * Перед удалением информации, действие необходимо подтвердить
+     */
     void buttonDelete(ActionEvent event) throws SQLException {
         if (textFieldId.getText().isEmpty()) {
             HelperService.dialogs(Alert.AlertType.ERROR, "Категории информации",
@@ -92,18 +100,28 @@ public class CategoriesController implements Initializable {
     }
 
     @FXML
+    /**
+     * Используем метод swtichScene для перехода между окнами приложения
+     */
     void buttonSwitchSceneDisks(ActionEvent event) throws IOException {
         SceneSwitchService sceneSwitchService = new SceneSwitchService();
         sceneSwitchService.switchScene("/ru/main/disks-view.fxml", event, "ManagerCompactDisk");
     }
 
     @FXML
+    /**
+     * Используем метод swtichScene для перехода между окнами приложения
+     */
     void buttonSwitchSceneTypes(ActionEvent event) throws IOException {
         SceneSwitchService sceneSwitchService = new SceneSwitchService();
         sceneSwitchService.switchScene("/ru/main/types-view.fxml", event, "Типы носителей");
     }
 
     @FXML
+    /**
+     * Обновление категории в базу данных с помощью метода updateCategory.
+     * Выполняется проверка на корректность заполнение поля.
+     */
     void buttonUpdate(ActionEvent event) throws SQLException {
         if (textAreaCategory.getText().isEmpty() || textFieldId.getText().isEmpty()) {
             HelperService.dialogs(Alert.AlertType.ERROR, "Категории информации",
@@ -115,6 +133,9 @@ public class CategoriesController implements Initializable {
     }
 
     @FXML
+    /**
+     * Получение данных выделенной строки из таблицы, затем отображение их в полях для ввода
+     */
     void tableViewMouseClicked(MouseEvent event) {
         CategoriesModel categoriesModel = tableView.getSelectionModel().getSelectedItem();
         textAreaCategory.setText(categoriesModel.getTitle());
@@ -122,6 +143,9 @@ public class CategoriesController implements Initializable {
     }
 
     @Override
+    /**
+     * Отображение данных в таблице при инициализации окна
+     */
     public void initialize(URL location, ResourceBundle resources) {
         setCategories();
     }
