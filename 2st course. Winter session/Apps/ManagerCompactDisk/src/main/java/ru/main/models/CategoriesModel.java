@@ -51,6 +51,7 @@ public class CategoriesModel  {
         }  catch (SQLException e) {
             e.printStackTrace();
         }
+
         return categoriesModelObservableList;
     }
 }
