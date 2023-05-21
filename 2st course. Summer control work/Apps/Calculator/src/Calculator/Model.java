@@ -14,7 +14,7 @@ public class Model {
             FileReader fileReader = new FileReader(file);
             /* Чтение текста из потока символов, буферизуя прочитанные символы */
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            /* Если файл пустой, не содержит какой-либо информации */
+            /* Если файл не пустой, содержит какую-либо информацию */
             if (bufferedReader.ready()) {
                 /* Чтение текста из файла, заканчивая последней строкой */
                 while (bufferedReader.ready()) {
