@@ -42,11 +42,11 @@ public class View {
                 break;
             case 2:
                 /* Получение истории уравнений */
-                model.showHistoryFromFile("equations.txt");
+                model.showHistoryFromFile(Model.FILE_HISTORY_OF_EQUATIONS);
                 break;
             case 3:
                 /* Получение истории результатов работы калькулятора */
-                model.showHistoryFromFile("results.txt");
+                model.showHistoryFromFile(Model.FILE_HISTORY_OF_RESULTS);
                 break;
             default:
                 /* Сообщение пользователю */
