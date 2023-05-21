@@ -9,6 +9,8 @@ public class Controller {
     protected double calculator(String equation) {
         /* Получение результата работы калькулятора */
         double result = resultFromRPN(reversePolishNotation(equation));
+        /* Передача уравнения и результаты работы калькулятора методу writerHistoryFromFile класса Model */
+        model.writerHistoryFromFile(equation, result);
         /* Передача результата работы калькулятора и управления методу main класса View */
         return result;
     }
