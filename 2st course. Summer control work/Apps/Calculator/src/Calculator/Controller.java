@@ -2,13 +2,17 @@ package Calculator;
 
 import java.util.Stack;
 public class Controller {
-    /* Экземляр класса Model
-    Model model = new Model(); */
+    /* Экземляр класса Model */
+    Model model = new Model();
 
     /* Основной метод Calculator, взаимодействующий с результатом */
     protected double calculator(String equation) {
-        /* Получение результата работы калькулятора и передача управления методу main класса View */
-        return resultFromRPN(reversePolishNotation(equation));
+        /* Получение результата работы калькулятора */
+        double result = resultFromRPN(reversePolishNotation(equation));
+        /* Запись уравнения и результаты работы калькулятора */
+        model.writeHistoryToFile(equation, result);
+        /* Передача результата работы калькулятора и управления методу main класса View */
+        return result;
     }
 
     /* Обратная польская запись (Reverse Polish notation, RPN) */
