@@ -14,7 +14,6 @@ public class View {
 
         /* Сообщение пользователю */
         System.out.println("Select an action: 1. Calculator 2. History of equations 3. History of results 4. Exit");
-        /* Исключение несоответствия входных данных */
         try {
             /* Получение выбранного действия в навигации от пользователя */
             selectedAction = scanner.nextInt();
@@ -28,7 +27,6 @@ public class View {
             case 1:
                 /* Сообщение пользователю */
                 System.out.print("Enter the equation: ");
-                /* Исключения несоответствия входных данных */
                 try {
                     /* Получение уравнения от пользователя */
                     String equation = scanner.next();
