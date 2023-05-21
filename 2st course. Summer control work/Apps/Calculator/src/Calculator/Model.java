@@ -14,10 +14,16 @@ public class Model {
             FileReader fileReader = new FileReader(file);
             /* Чтение текста из потока символов, буферизуя прочитанные символы */
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-            /* Чтение текста из файла, заканчивая последней строкой */
-            while (bufferedReader.ready()) {
-                /* Отображение полученного текста из файла */
-                System.out.println(bufferedReader.readLine());
+            /* Если файл пустой, не содержит какой-либо информации */
+            if (bufferedReader.ready()) {
+                /* Чтение текста из файла, заканчивая последней строкой */
+                while (bufferedReader.ready()) {
+                    /* Отображение полученного текста из файла */
+                    System.out.println(bufferedReader.readLine());
+                }
+            } else {
+                /* Сообщение пользователю */
+                System.out.print("The file is " + historyFromFile + " empty, does not contain any information.");
             }
         } catch (Exception e) {
             /* Сообщение пользователю */
