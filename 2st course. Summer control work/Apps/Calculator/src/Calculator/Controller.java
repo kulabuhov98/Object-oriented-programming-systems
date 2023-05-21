@@ -9,8 +9,6 @@ public class Controller {
     protected double calculator(String equation) {
         /* Получение результата работы калькулятора */
         double result = resultFromRPN(reversePolishNotation(equation));
-        /* Запись уравнения и результаты работы калькулятора */
-        model.writeHistoryToFile(equation, result);
         /* Передача результата работы калькулятора и управления методу main класса View */
         return result;
     }
@@ -86,7 +84,7 @@ public class Controller {
                 }
 
                 stack.push(Double.parseDouble(String.valueOf(value)));
-                value = new StringBuilder(new String());
+                value = new StringBuilder();
             }
             /* Обработка математических операции с приоритетом 2 и 3 */
             if (getPriority(rpn.charAt(i)) > 1) {
