@@ -44,4 +44,21 @@ public class LogOfExpressions {
             System.out.println(e.getMessage());
         }
     }
+
+    /* Запись массива данных в пользовательский файл */
+    public void setExpressionsCustom(Path logOfExpressionCustom, String expression) {
+        try {
+            /* Существует ли пользовательский файл */
+            if (Files.notExists(logOfExpressionCustom)) {
+                Files.createFile(logOfExpressionCustom);
+            }
+            /* Запись массива данных в пользовательский файл */
+            Files.write(logOfExpressionCustom, (expression).getBytes(), StandardOpenOption.APPEND);
+            /* Сообщение пользователю */
+            System.out.println("The expression was successfully saved in " + logOfExpressionCustom.getParent() + logOfExpressionCustom.getFileName() + ".");
+        } catch (Exception e) {
+            /* Сообщение пользователю */
+            System.out.println(e.getMessage());
+        }
+    }
 }
