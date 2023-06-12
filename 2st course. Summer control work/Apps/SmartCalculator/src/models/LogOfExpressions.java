@@ -11,34 +11,34 @@ public class LogOfExpressions {
     /* Массив данных */
     private List<String> expressions = new ArrayList<>();
     /* Файл по умолчанию, содержащий массив данных */
-    private final Path logOfExpressions = Paths.get(System.getProperty("user.dir") + "\\logOfExpressions.txt");
+    private final Path logOfExpressionsDefault = Paths.get(System.getProperty("user.dir") + "\\logOfExpressions.txt");
 
-    /* Чтение массива данных из файла */
+    /* Чтение массива данных из файла по умолчанию */
     public List<String> getExpressions() {
         try {
-            /* Получение массива данных из файла */
-            expressions = Files.readAllLines(logOfExpressions);
+            /* Получение массива данных из файла по умолчанию */
+            expressions = Files.readAllLines(logOfExpressionsDefault);
         } catch (Exception e) {
             /* Сообщение пользователю */
             System.out.println(e.getMessage());
         }
-        /* Возвращение массива данных из файла */
+        /* Возвращение массива данных из файла по умолчанию */
         return expressions;
     }
 
-    /* Запись массива данных в файл */
+    /* Запись массива данных в файл по умолчанию */
     public void setExpressions(String expression) {
         try {
-            /* Существует ли файл */
-            if (Files.notExists(logOfExpressions)) {
-                Files.createFile(logOfExpressions);
+            /* Существует ли файл по умолчанию */
+            if (Files.notExists(logOfExpressionsDefault)) {
+                Files.createFile(logOfExpressionsDefault);
             }
             /* Добавление нового значения в массив данных */
             expressions.add(expression);
-            /* Запись массива данных в файл */
-            Files.write(logOfExpressions, expressions, StandardOpenOption.APPEND);
+            /* Запись массива данных в файл по умолчанию */
+            Files.write(logOfExpressionsDefault, expressions, StandardOpenOption.APPEND);
             /* Сообщение пользователю */
-            System.out.println("The expression was successfully saved in " + logOfExpressions.getParent() + logOfExpressions.getFileName() + ".");
+            System.out.println("The expression was successfully saved in " + logOfExpressionsDefault.getParent() + logOfExpressionsDefault.getFileName() + ".");
         } catch (Exception e) {
             /* Сообщение пользователю */
             System.out.println(e.getMessage());
