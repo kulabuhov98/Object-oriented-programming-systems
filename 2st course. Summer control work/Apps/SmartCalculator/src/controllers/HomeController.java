@@ -4,6 +4,8 @@ import models.Calculator;
 import models.LogOfExpressions;
 import models.LogOfResults;
 
+import java.util.List;
+
 public class HomeController {
     /* Объект класса модели Calculator */
     private final Calculator calculator;
@@ -28,6 +30,14 @@ public class HomeController {
     public void setLogs(String expression) {
         logOfExpressions.setExpressions(expression);
         logOfResults.setResults(calculator.main(expression));
+    }
+
+    /* Отображение выражения и результатов работы приложения */
+    public void history() {
+        List<String> expressions = logOfExpressions.getExpressions(), results = logOfResults.getResults();
+        for (int i = 0; i < expressions.size(); i++) {
+            System.out.println(expressions.get(i) + "\t= " + results.get(i));
+        }
     }
 
     /* Выход и завершение работы приложения */
