@@ -15,4 +15,15 @@ public class HomeView {
         this.homeController = homeController;
         this.scanner = scanner;
     }
+
+    /* Основной экран приложения */
+    public void main() {
+        try {
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
 }
