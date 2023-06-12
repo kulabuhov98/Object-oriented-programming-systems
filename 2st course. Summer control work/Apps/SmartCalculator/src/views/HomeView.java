@@ -24,7 +24,12 @@ public class HomeView {
             /* Обработка выбранного действия в навигации */
             switch (scanner.nextInt()) {
                 case 1 -> {
-
+                    /* Сообщение пользователю */
+                    System.out.println("Enter the expression:");
+                    /* Получение выражения от пользователя */
+                    String expression = scanner.next();
+                    /* Сообщение пользователю */
+                    System.out.println("The result of the expression: \n" + homeController.calculator(expression));
                 }
                 case 2 -> {
 
