@@ -32,6 +32,19 @@ public class HomeView {
                     System.out.println("The result of the expression: \n" + homeController.calculator(expression));
                     /* Вызов метода setLogs класса контроллера HomeController */
                     homeController.setLogs(expression);
+
+                    /* Сообщение пользователю */
+                    System.out.println("Save the expression to a separate file? (YES/NO)");
+                    /* Сохранить ли текущее выражение в отдельный файл */
+                    if (scanner.next().equals("YES")) {
+                        /* Сообщение пользователю */
+                        System.out.println("Enter the full name of the file (Absolute paths are allowed):");
+                        /* Получение полного названия файла от пользователя */
+                        String logOfExpressionCustom = scanner.next();
+                    } else {
+                        /* Выход и завершение работы приложения */
+                        homeController.exit();
+                    }
                 }
                 case 2 -> homeController.history();
                 case 3 -> {
