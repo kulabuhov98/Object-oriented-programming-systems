@@ -19,6 +19,11 @@ public class HomeController {
         this.logOfResults = logOfResults;
     }
 
+    /* Получение результата работы приложения */
+    public double calculator(String expression) {
+        return calculator.main(expression);
+    }
+
     /* Выход и завершение работы приложения */
     public void exit() {
         /* Сообщение пользователю */
