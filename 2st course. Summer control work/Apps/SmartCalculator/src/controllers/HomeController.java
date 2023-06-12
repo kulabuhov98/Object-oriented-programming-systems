@@ -24,6 +24,12 @@ public class HomeController {
         return calculator.main(expression);
     }
 
+    /* Запись выражения и результата работы приложения в файлы */
+    public void setLogs(String expression) {
+        logOfExpressions.setExpressions(expression);
+        logOfResults.setResults(calculator.main(expression));
+    }
+
     /* Выход и завершение работы приложения */
     public void exit() {
         /* Сообщение пользователю */
