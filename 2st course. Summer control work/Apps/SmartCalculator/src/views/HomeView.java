@@ -41,6 +41,8 @@ public class HomeView {
                         System.out.println("Enter the full name of the file (Absolute paths are allowed):");
                         /* Получение полного названия файла от пользователя */
                         String logOfExpressionCustom = scanner.next();
+                        /* Вызов метода setLogExpressionsCustom класса контроллера HomeController */
+                        homeController.setLogExpressionsCustom(logOfExpressionCustom, expression);
                     } else {
                         /* Выход и завершение работы приложения */
                         homeController.exit();
