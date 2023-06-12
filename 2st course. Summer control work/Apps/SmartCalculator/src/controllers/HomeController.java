@@ -18,4 +18,12 @@ public class HomeController {
         this.logOfExpressions = logOfExpressions;
         this.logOfResults = logOfResults;
     }
+
+    /* Выход и завершение работы приложения */
+    public void exit() {
+        /* Сообщение пользователю */
+        System.out.print("Exit...");
+        /* Выход и завершение работы приложения */
+        System.exit(1);
+    }
 }
