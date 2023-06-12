@@ -33,9 +33,7 @@ public class HomeView {
                     /* Вызов метода setLogs класса контроллера HomeController */
                     homeController.setLogs(expression);
                 }
-                case 2 -> {
-
-                }
+                case 2 -> homeController.history();
                 case 3 -> {
 
                 }
