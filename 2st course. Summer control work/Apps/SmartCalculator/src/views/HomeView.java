@@ -28,8 +28,10 @@ public class HomeView {
                     System.out.println("Enter the expression:");
                     /* Получение выражения от пользователя */
                     String expression = scanner.next();
-                    /* Сообщение пользователю */
+                    /* Сообщение пользователю и вызов метода calculator класса контроллера HomeController */
                     System.out.println("The result of the expression: \n" + homeController.calculator(expression));
+                    /* Вызов метода setLogs класса контроллера HomeController */
+                    homeController.setLogs(expression);
                 }
                 case 2 -> {
 
