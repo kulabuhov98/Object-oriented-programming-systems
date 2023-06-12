@@ -11,34 +11,34 @@ public class LogOfResults {
     /* Массив данных */
     private List<String> results = new ArrayList<>();
     /* Файл по умолчанию, содержащий массив данных */
-    private final Path logOfResults = Paths.get(System.getProperty("user.dir") + "\\logOfResults.txt");
+    private final Path logOfResultsDefault = Paths.get(System.getProperty("user.dir") + "\\logOfResults.txt");
 
-    /* Чтение массива данных из файла */
+    /* Чтение массива данных из файла по умолчанию */
     public List<String> getResults() {
         try {
-            /* Получение массива данных из файла */
-            results = Files.readAllLines(logOfResults);
+            /* Получение массива данных из файла по умолчанию */
+            results = Files.readAllLines(logOfResultsDefault);
         } catch (Exception e) {
             /* Сообщение пользователю */
             System.out.println(e.getMessage());
         }
-        /* Возвращение массива данных из файла */
+        /* Возвращение массива данных из файла по умолчанию */
         return results;
     }
 
-    /* Запись массива данных в файл */
+    /* Запись массива данных в файл по умолчанию */
     public void setResults(Double result) {
         try {
-            /* Существует ли файл */
-            if (Files.notExists(logOfResults)) {
-                Files.createFile(logOfResults);
+            /* Существует ли файл по умолчанию */
+            if (Files.notExists(logOfResultsDefault)) {
+                Files.createFile(logOfResultsDefault);
             }
             /* Добавление нового значения в массив данных */
             results.add(Double.toString(result));
-            /* Запись массива данных в файл */
-            Files.write(logOfResults, results, StandardOpenOption.APPEND);
+            /* Запись массива данных в файл по умолчанию */
+            Files.write(logOfResultsDefault, results, StandardOpenOption.APPEND);
             /* Сообщение пользователю */
-            System.out.println("The result was successfully saved in " + logOfResults.getParent() + logOfResults.getFileName() + ".");
+            System.out.println("The result was successfully saved in " + logOfResultsDefault.getParent() + logOfResultsDefault.getFileName() + ".");
         } catch (Exception e) {
             /* Сообщение пользователю */
             System.out.println(e.getMessage());
