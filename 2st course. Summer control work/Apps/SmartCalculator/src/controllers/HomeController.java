@@ -4,6 +4,8 @@ import models.Calculator;
 import models.LogOfExpressions;
 import models.LogOfResults;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class HomeController {
@@ -26,10 +28,15 @@ public class HomeController {
         return calculator.main(expression);
     }
 
-    /* Запись выражения и результата работы приложения в файлы */
+    /* Запись выражения и результата работы приложения в файлы по умолчанию */
     public void setLogs(String expression) {
         logOfExpressions.setExpressions(expression);
         logOfResults.setResults(calculator.main(expression));
+    }
+
+    /* Запись выражения в пользовательский файл */
+    public void setLogExpressionsCustom(String logOfExpressionCustom, String expression) {
+        logOfExpressions.setExpressionsCustom(Paths.get(logOfExpressionCustom), expression);
     }
 
     /* Отображение выражения и результатов работы приложения */
