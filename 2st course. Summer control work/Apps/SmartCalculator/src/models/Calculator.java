@@ -116,7 +116,6 @@ public class Calculator {
         return stack.pop();
     }
 
-
     /* Формирование приоритета математических операций и значений */
     private int getPriority(char symbol) {
         return switch (symbol) {
