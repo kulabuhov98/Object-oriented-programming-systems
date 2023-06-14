@@ -46,16 +46,16 @@ public class LogOfExpressions {
     }
 
     /* Запись массива данных в пользовательский файл */
-    public void setExpressionsCustom(Path logOfExpressionCustom, String expression) {
+    public void setExpressionsCustom(Path logOfExpressionCustomPath, String expression) {
         try {
             /* Существует ли пользовательский файл */
-            if (Files.notExists(logOfExpressionCustom)) {
-                Files.createFile(logOfExpressionCustom);
+            if (Files.notExists(logOfExpressionCustomPath)) {
+                Files.createFile(logOfExpressionCustomPath);
             }
             /* Запись массива данных в пользовательский файл */
-            Files.write(logOfExpressionCustom, (expression).getBytes(), StandardOpenOption.APPEND);
+            Files.write(logOfExpressionCustomPath, (expression).getBytes(), StandardOpenOption.APPEND);
             /* Сообщение пользователю */
-            System.out.println("The expression was successfully saved in " + logOfExpressionCustom.getParent() + "\\" + logOfExpressionCustom.getFileName() + ".");
+            System.out.println("The expression was successfully saved in " + logOfExpressionCustomPath.getParent() + "\\" + logOfExpressionCustomPath.getFileName() + ".");
         } catch (Exception e) {
             /* Сообщение пользователю */
             System.out.println(e.getMessage());
