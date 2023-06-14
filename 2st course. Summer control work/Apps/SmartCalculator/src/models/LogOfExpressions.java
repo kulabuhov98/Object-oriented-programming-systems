@@ -38,7 +38,7 @@ public class LogOfExpressions {
             /* Запись массива данных в файл по умолчанию */
             Files.write(logOfExpressionsDefault, expressions, StandardOpenOption.APPEND);
             /* Сообщение пользователю */
-            System.out.println("The expression was successfully saved in " + logOfExpressionsDefault.getParent() + logOfExpressionsDefault.getFileName() + ".");
+            System.out.println("The expression was successfully saved in " + logOfExpressionsDefault.getParent() + "\\" + logOfExpressionsDefault.getFileName() + ".");
         } catch (Exception e) {
             /* Сообщение пользователю */
             System.out.println(e.getMessage());
@@ -55,7 +55,7 @@ public class LogOfExpressions {
             /* Запись массива данных в пользовательский файл */
             Files.write(logOfExpressionCustom, (expression).getBytes(), StandardOpenOption.APPEND);
             /* Сообщение пользователю */
-            System.out.println("The expression was successfully saved in " + logOfExpressionCustom.getParent() + logOfExpressionCustom.getFileName() + ".");
+            System.out.println("The expression was successfully saved in " + logOfExpressionCustom.getParent() + "\\" + logOfExpressionCustom.getFileName() + ".");
         } catch (Exception e) {
             /* Сообщение пользователю */
             System.out.println(e.getMessage());
