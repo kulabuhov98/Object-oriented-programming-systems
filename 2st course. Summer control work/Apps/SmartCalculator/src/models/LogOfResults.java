@@ -46,12 +46,22 @@ public class LogOfResults {
     }
 
     /* Запись массива данных в пользовательский файл */
-    public void setResultsCustom(Path logOfResultCustom) {
+    public void setResultsCustom(String logOfResultCustom) {
         try {
             /* Существует ли файл по умолчанию */
             if (Files.notExists(logOfResultsDefault)) {
+                /* Сообщение пользователю */
                 System.out.println("The file " + logOfResultsDefault.getParent() + "\\" + logOfResultsDefault.getFileName() + " does not exist.");
             } else {
+                /* Расширение файла .md */
+                int md = logOfResultCustom.indexOf(".md");
+                /* Расширение файла .txt */
+                int txt = logOfResultCustom.indexOf(".txt");
+                /* Расширение файла .log */
+                int log = logOfResultCustom.indexOf(".log");
+                /* Получение из строки объекта Path */
+                Path logOfResultCustomPath = Paths.get(logOfResultCustom);
+
 
             }
         } catch (Exception e) {
