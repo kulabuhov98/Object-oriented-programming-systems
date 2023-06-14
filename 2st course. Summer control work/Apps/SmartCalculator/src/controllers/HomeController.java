@@ -34,13 +34,13 @@ public class HomeController {
     }
 
     /* Запись выражения в пользовательский файл */
-    public void setLogExpressionsCustom(String logOfExpressionCustom, String expression) {
-        logOfExpressions.setExpressionsCustom(Paths.get(logOfExpressionCustom), expression);
+    public void setLogExpressionsCustom(String logOfExpressionCustomPath, String expression) {
+        logOfExpressions.setExpressionsCustom(Paths.get(logOfExpressionCustomPath), expression);
     }
 
     /* Запись выражения в пользовательский файл */
     public void setLogResultsCustom(String logOfResultCustom) {
-        logOfResults.setResultsCustom(Paths.get(logOfResultCustom));
+        logOfResults.setResultsCustom(logOfResultCustom);
     }
 
     /* Отображение выражения и результатов работы приложения */
