@@ -38,6 +38,11 @@ public class HomeController {
         logOfExpressions.setExpressionsCustom(Paths.get(logOfExpressionCustom), expression);
     }
 
+    /* Запись выражения в пользовательский файл */
+    public void setLogResultsCustom(String logOfResultCustom) {
+        logOfResults.setResultsCustom(Paths.get(logOfResultCustom));
+    }
+
     /* Отображение выражения и результатов работы приложения */
     public void history() {
         List<String> expressions = logOfExpressions.getExpressions(), results = logOfResults.getResults();
