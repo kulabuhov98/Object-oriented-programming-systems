@@ -38,7 +38,7 @@ public class LogOfResults {
             /* Запись массива данных в файл по умолчанию */
             Files.write(logOfResultsDefault, results, StandardOpenOption.APPEND);
             /* Сообщение пользователю */
-            System.out.println("The result was successfully saved in " + logOfResultsDefault.getParent() + logOfResultsDefault.getFileName() + ".");
+            System.out.println("The result was successfully saved in " + logOfResultsDefault.getParent() + "\\" + logOfResultsDefault.getFileName() + ".");
         } catch (Exception e) {
             /* Сообщение пользователю */
             System.out.println(e.getMessage());
@@ -48,7 +48,12 @@ public class LogOfResults {
     /* Запись массива данных в пользовательский файл */
     public void setResultsCustom(Path logOfResultCustom) {
         try {
+            /* Существует ли файл по умолчанию */
+            if (Files.notExists(logOfResultsDefault)) {
+                System.out.println("The file " + logOfResultsDefault.getParent() + "\\" + logOfResultsDefault.getFileName() + " does not exist.");
+            } else {
 
+            }
         } catch (Exception e) {
             /* Сообщение пользователю */
             System.out.println(e.getMessage());
