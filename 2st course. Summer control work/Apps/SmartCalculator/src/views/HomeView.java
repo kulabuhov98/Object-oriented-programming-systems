@@ -51,7 +51,12 @@ public class HomeView {
                 /* Вызов метода history класса контроллера HomeController */
                 case 2 -> homeController.history();
                 case 3 -> {
-
+                    /* Сообщение пользователю */
+                    System.out.println("Enter the full name of the file (Absolute paths are allowed):");
+                    /* Получение полного названия файла от пользователя */
+                    String logOfResultCustom = scanner.next();
+                    /* Вызов метода setLogResultsCustom класса контроллера HomeController */
+                    homeController.setLogResultsCustom(logOfResultCustom);
                 }
                 /* Вызов метода exit класса контроллера HomeController */
                 default -> homeController.exit();
