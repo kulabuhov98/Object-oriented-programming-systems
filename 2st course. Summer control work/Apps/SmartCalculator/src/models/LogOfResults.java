@@ -44,4 +44,14 @@ public class LogOfResults {
             System.out.println(e.getMessage());
         }
     }
+
+    /* Запись массива данных в пользовательский файл */
+    public void setResultsCustom() {
+        try {
+
+        } catch (Exception e) {
+            /* Сообщение пользователю */
+            System.out.println(e.getMessage());
+        }
+    }
 }
