@@ -46,7 +46,7 @@ public class LogOfResults {
     }
 
     /* Запись массива данных в пользовательский файл */
-    public void setResultsCustom() {
+    public void setResultsCustom(Path logOfResultCustom) {
         try {
 
         } catch (Exception e) {
