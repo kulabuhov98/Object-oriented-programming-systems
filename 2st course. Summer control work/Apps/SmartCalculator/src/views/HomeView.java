@@ -44,15 +44,16 @@ public class HomeView {
                         /* Вызов метода setLogExpressionsCustom класса контроллера HomeController */
                         homeController.setLogExpressionsCustom(logOfExpressionCustom, expression);
                     } else {
-                        /* Выход и завершение работы приложения */
+                        /* Вызов метода exit класса контроллера HomeController */
                         homeController.exit();
                     }
                 }
+                /* Вызов метода history класса контроллера HomeController */
                 case 2 -> homeController.history();
                 case 3 -> {
 
                 }
-                /* Выход и завершение работы приложения */
+                /* Вызов метода exit класса контроллера HomeController */
                 default -> homeController.exit();
             }
         } catch (Exception e) {
