@@ -62,7 +62,28 @@ public class LogOfResults {
                 /* Получение из строки объекта Path */
                 Path logOfResultCustomPath = Paths.get(logOfResultCustom);
 
-
+                /* Если пользователь указал имя файла и определенные расширения */
+                if (md > 0 || txt > 0 || log > 0) {
+                    /* Копирование файла по умолчанию по указанному пути */
+                    Files.copy(logOfResultsDefault, logOfResultCustomPath);
+                    /* Сообщение пользователю */
+                    System.out.println("The results are saved in a file " + logOfResultCustomPath.getParent() + "\\" + logOfResultCustomPath.getFileName() + ".");
+                /* Если пользователь указал лишь путь где следует сохранить файл */
+                } else if (!logOfResultCustom.contains(".")) {
+                    /* Копирование файла по умолчанию по указанному пути */
+                    Files.copy(logOfResultsDefault, Paths.get("log.log"));
+                    /* Сообщение пользователю */
+                    System.out.println("The results are saved in a file " + System.getProperty("user.dir") + "\\" + "log.log.");
+                /* Если пользователь указал абсолютный путь с именем файла */
+                } else if (logOfResultCustomPath.isAbsolute()) {
+                    /* Копирование файла по умолчанию по указанному пути */
+                    Files.copy(logOfResultsDefault, logOfResultCustomPath);
+                    /* Сообщение пользователю */
+                    System.out.println("The results are saved in a file " + logOfResultCustomPath.getParent() + "\\" + logOfResultCustomPath.getFileName() + ".");
+                } else {
+                    /* Сообщение пользователю */
+                    System.out.println("The results are saved in a file " + logOfResultsDefault.getParent() + "\\" + logOfResultsDefault.getFileName() + ".");
+                }
             }
         } catch (Exception e) {
             /* Сообщение пользователю */
