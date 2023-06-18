@@ -4,6 +4,12 @@ import java.awt.*;
 public class Main extends JFrame {
     /* Элемент управления, представляющий собой прямоугольное пространство */
     private JPanel jPanel;
+    /* Количество столбцов на игровом поле по умолчанию */
+    private final int COLS = 16;
+    /* Количество строк на игровой поле по умолчанию */
+    private final int ROWS = 16;
+    /* Размер изображения на игровом поле */
+    private final int IMAGE_SIZE = 50;
     public static void main(String[] args) {
         /* Экземляр класса Main */
         new Main();
