@@ -7,9 +7,9 @@ public class Main extends JFrame {
     private final String uiManager = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 
     /* Количество столбцов на игровом поле по умолчанию */
-    private final int COLS = 15;
+    private final int COLS = 16;
     /* Количество строк на игровой поле по умолчанию */
-    private final int ROWS = 15;
+    private final int ROWS = 16;
     /* Размер изображения на игровом поле */
     private final int IMAGE_SIZE = 16;
     public static void main(String[] args) throws Exception {
@@ -96,7 +96,6 @@ public class Main extends JFrame {
             /* Переопределение элемента родительского класса или суперкласса */
             @Override
             protected void paintComponent(Graphics graphics) {
-                graphics.drawImage(getImage("closed"), 0, 0, this);
             }
         };
         /* Установка предпочтительного размера компонента JPanel */
