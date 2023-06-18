@@ -13,7 +13,7 @@ public class Main extends JFrame {
 
     /* Конструктор класса Main */
     private Main() {
-        /* Инициализация приложения */
+        /* Вызов метода initJFrame класса Main */
         initJFrame();
     }
 
