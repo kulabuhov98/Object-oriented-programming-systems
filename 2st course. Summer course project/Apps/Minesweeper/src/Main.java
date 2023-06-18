@@ -13,6 +13,12 @@ public class Main extends JFrame {
 
     /* Конструктор класса Main */
     private Main() {
+        /* Инициализация приложения */
+        initJFrame();
+    }
+
+    /* Инициализация приложения */
+    private void initJFrame() {
         /* Действие при завершении приложения */
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         /* Заголовок окна приложения */
@@ -25,10 +31,5 @@ public class Main extends JFrame {
         pack();
         /* Отображение окна приложения по центру экрана */
         setLocationRelativeTo(null);
-    }
-
-    /* Инициализация приложения */
-    private void initJFrame() {
-
     }
 }
