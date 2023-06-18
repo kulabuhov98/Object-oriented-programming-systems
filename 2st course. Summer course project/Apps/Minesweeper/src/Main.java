@@ -3,19 +3,24 @@ import java.awt.*;
 import java.util.Objects;
 
 public class Main extends JFrame {
+    /* Стиль приложения */
+    private final String uiManager = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+
     /* Количество столбцов на игровом поле по умолчанию */
     private final int COLS = 15;
     /* Количество строк на игровой поле по умолчанию */
     private final int ROWS = 15;
     /* Размер изображения на игровом поле */
     private final int IMAGE_SIZE = 16;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         /* Экземляр класса Main */
         new Main();
     }
 
     /* Конструктор класса Main */
-    private Main() {
+    private Main() throws Exception {
+        /* Изменение стиля приложения */
+        UIManager.setLookAndFeel(uiManager);
         /* Вызов метода initJMenuBar класса Main */
         initJMenuBar();
         /* Вызов метода initJPanel класса Main */
@@ -67,12 +72,16 @@ public class Main extends JFrame {
 
         /* Добавление дополнительного элемента New в основной элемент меню Game */
         gameJMenu.add(newJMenuItem);
+        /* Добавление горизонтального разделите в основной элемент меню Game */
+        gameJMenu.addSeparator();
         /* Добавление дополнительного элемента Beginner в основной элемент меню Game */
         gameJMenu.add(beginnerJMenuItem);
         /* Добавление дополнительного элемента Intermediate в основной элемент меню Game */
         gameJMenu.add(intermediateJMenuItem);
         /* Добавление дополнительного элемента Expert в основной элемент меню Game */
         gameJMenu.add(expertJMenuItem);
+        /* Добавление горизонтального разделите в основной элемент меню Game */
+        gameJMenu.addSeparator();
         /* Добавление дополнительного элемента Exit в основной элемент меню Game */
         gameJMenu.add(exitJMenuItem);
 
