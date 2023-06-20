@@ -3,6 +3,7 @@ package sweeper;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Objects;
+
 public class Images {
     /* Установка взаимосвязи между изображениями из ресурсов проекта с элементами перечисления */
     public void setImages() {
