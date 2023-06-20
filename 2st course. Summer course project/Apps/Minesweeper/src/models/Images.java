@@ -7,11 +7,11 @@ import java.awt.*;
 import java.util.Objects;
 
 public class Images {
-    /* Установка соотношения изображения с элементом перечисления */
+    /* Установка взаимосвязи между изображениями из ресурсов проекта с элементами перечисления */
     public void setImages() {
         /* Прохождение по всем элементам перечисления */
         for (ImagesForCell imagesForCell : ImagesForCell.values()) {
-            /* Установка соотношения изображения с элементом перечисления */
+            /* Установка взаимосвязи между изображением с элементом перечисления */
             imagesForCell.image = getImage((imagesForCell.name()));
         }
     }
