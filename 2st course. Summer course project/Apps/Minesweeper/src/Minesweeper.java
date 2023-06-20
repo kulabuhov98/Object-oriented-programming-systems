@@ -1,3 +1,5 @@
+import sweeper.Cells;
+import sweeper.CoordinateSystem;
 import sweeper.Images;
 import sweeper.ImagesForCell;
 
@@ -29,6 +31,8 @@ public class Minesweeper extends JFrame {
     private Minesweeper() throws Exception {
         /* Изменение стиля приложения */
         UIManager.setLookAndFeel(uiManager);
+        /* Вызов статического метода setSize класса Cells */
+        Cells.setSize(new CoordinateSystem(COLS, ROWS));
         /* Вызов метода setImages класса Images */
         images.setImages();
         /* Вызов метода initJMenuBar класса Main */
