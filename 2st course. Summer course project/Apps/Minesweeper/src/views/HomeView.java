@@ -96,7 +96,7 @@ public class HomeView extends JFrame {
 
                 /* Прохождение по всем элементам перечисления */
                 for (ImagesForCell imagesForCell : ImagesForCell.values())
-                    /* Отображение изображения из ресурсов проекта на игровом поле */
+                    /* Отображение элементов перечисления на игровом поле */
                     graphics.drawImage(imagesForCell.image, imagesForCell.ordinal() * CELL_SIZE, 0, this);
             }
         };
