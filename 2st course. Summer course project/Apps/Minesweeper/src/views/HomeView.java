@@ -21,7 +21,7 @@ public class HomeView extends JFrame {
     private final int CELL_SIZE = 16;
 
     /* Конструктор класса HomeView */
-    public HomeView(HomeController homeController, Images images) {
+    public HomeView(HomeController homeController) {
         this.homeController = homeController;
     }
 
@@ -31,6 +31,8 @@ public class HomeView extends JFrame {
         UIManager.setLookAndFeel(uiManager);
         /* Вызов метода initJMenuBar класса Main */
         initJMenuBar();
+        /* Вызов метода setImages класса контроллер HomeController */
+        homeController.setImages();
         /* Вызов метода initJPanel класса Main */
         initJPanel();
         /* Вызов метода initJFrame класса Main */
