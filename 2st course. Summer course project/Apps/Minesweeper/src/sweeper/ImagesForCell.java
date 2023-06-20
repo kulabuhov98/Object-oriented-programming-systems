@@ -19,13 +19,6 @@ public enum ImagesForCell {
     BOMBED,
     NOBOMB;
 
+    /* Объект изображения */
     public Image image;
-
-    ImagesForCell getNextNumberBox() {
-        return ImagesForCell.values()[this.ordinal() + 1];
-    }
-
-    int getNumber() {
-        return this.ordinal();
-    }
 }
