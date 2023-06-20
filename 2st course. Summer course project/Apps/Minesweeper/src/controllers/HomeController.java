@@ -17,4 +17,10 @@ public class HomeController {
         /* Вызов метода getImage класса модели Images */
         return images.getImage(filename);
     }
+
+    /* Установка взаимосвязи между изображениями из ресурсов проекта с элементами перечисления */
+    public void setImages() {
+        /* Вызов метода setImages класса модели Images */
+        images.setImages();
+    }
 }
