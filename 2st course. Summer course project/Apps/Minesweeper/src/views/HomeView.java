@@ -1,7 +1,7 @@
 package views;
 
 import controllers.HomeController;
-import models.Images;
+import sweeper.ImagesForCell;
 
 import javax.swing.*;
 import java.awt.*;
@@ -93,6 +93,11 @@ public class HomeView extends JFrame {
             protected void paintComponent(Graphics graphics) {
                 /* Вызов конструктора базового класса */
                 super.paintComponent(graphics);
+
+                /* Прохождение по всем элементам перечисления */
+                for (ImagesForCell imagesForCell : ImagesForCell.values())
+                    /* Отображение изображения из ресурсов проекта на игровом поле */
+                    graphics.drawImage(imagesForCell.image, imagesForCell.ordinal() * CELL_SIZE, 0, this);
             }
         };
         /* Установка предпочтительного размера компонента JPanel */
