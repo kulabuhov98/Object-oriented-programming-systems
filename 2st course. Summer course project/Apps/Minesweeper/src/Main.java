@@ -9,7 +9,7 @@ public class Main {
         /* Экземпляр класса контроллера HomeController */
         HomeController homeController = new HomeController(images);
         /* Экземпляр класса представления HomeView */
-        HomeView homeView = new HomeView(homeController, images);
+        HomeView homeView = new HomeView(homeController);
         /* Инициализация приложения */
         homeView.main();
     }
