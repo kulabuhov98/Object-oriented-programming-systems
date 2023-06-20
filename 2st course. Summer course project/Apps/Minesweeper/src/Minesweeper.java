@@ -10,17 +10,14 @@ public class Minesweeper extends JFrame {
     /* Объект класса Images */
     private final Images images = new Images();
 
-    /* Стиль приложения */
-    private final String uiManager = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+    /* Размер оси координат X */
+    private final int SIZE_X = 16;
 
-    /* Количество столбцов на игровом поле по умолчанию */
-    private final int COLS = 16;
-
-    /* Количество строк на игровой поле по умолчанию */
-    private final int ROWS = 16;
+    /* Размер оси координат Y */
+    private final int SIZE_Y = 16;
 
     /* Размер ячейки игрового поля */
-    private final int CELL_SIZE = 16;
+    private final int SIZE_CELL = 16;
 
     /* Инициализация приложения */
     public static void main(String[] args) throws Exception {
@@ -29,10 +26,12 @@ public class Minesweeper extends JFrame {
 
     /* Основной экран приложения */
     private Minesweeper() throws Exception {
+        /* Стиль приложения */
+        String uiManager = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
         /* Изменение стиля приложения */
         UIManager.setLookAndFeel(uiManager);
         /* Вызов статического метода setSize класса Cells */
-        Cells.setSize(new CoordinateSystem(COLS, ROWS));
+        Cells.setSize(new CoordinateSystem(SIZE_X, SIZE_Y));
         /* Вызов метода setImages класса Images */
         images.setImages();
         /* Вызов метода initJMenuBar класса Main */
@@ -101,11 +100,12 @@ public class Minesweeper extends JFrame {
                 /* Прохождение по всем элементам перечисления */
                 for (ImagesForCell imagesForCell : ImagesForCell.values())
                     /* Отображение элементов перечисления на игровом поле */
-                    graphics.drawImage(imagesForCell.image, imagesForCell.ordinal() * CELL_SIZE, 0, this);
+                    graphics.drawImage(imagesForCell.image, imagesForCell.ordinal() * SIZE_CELL, 0, this);
             }
         };
         /* Установка предпочтительного размера компонента JPanel */
-        jPanel.setPreferredSize(new Dimension(COLS * CELL_SIZE, ROWS * CELL_SIZE));
+        jPanel.setPreferredSize(new Dimension(Cells.getSize().x * SIZE_CELL,
+                Cells.getSize().y * SIZE_CELL));
         /* Добавление компонента JPanel в окно приложения */
         add(jPanel);
     }
