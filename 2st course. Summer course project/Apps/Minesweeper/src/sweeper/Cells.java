@@ -1,7 +1,16 @@
 package sweeper;
 
 public class Cells {
-    /* Значения координат по оси X и Y */
-    private CoordinateSystem size;
+    /* Значения размеров оси координат X и Y */
+    private static CoordinateSystem size;
 
+    /* Установка размера оси координат X и Y */
+    public static void setSize(CoordinateSystem xy) {
+        size = xy;
+    }
+
+    /* Получение размера оси координат X и Y */
+    public static CoordinateSystem getSize() {
+        return size;
+    }
 }
