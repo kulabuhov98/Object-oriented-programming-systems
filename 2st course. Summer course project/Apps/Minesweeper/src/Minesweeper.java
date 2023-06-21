@@ -13,11 +13,14 @@ public class Minesweeper extends JFrame {
     /* Объект класса Images */
     private final Images images = new Images();
 
-    /* Количество столбцов игрового поля */
+    /* Количество столбцов игрового поля по умолчанию */
     private final int COLS = 16;
 
-    /* Количество строк игрового поля */
+    /* Количество строк игрового поля по умолчанию */
     private final int ROWS = 16;
+
+    /* Количество бомб на игровом поле по умолчанию */
+    private final int BOMBS = 10;
 
     /* Размер ячейки игрового поля */
     private final int SIZE_CELL = 16;
@@ -34,9 +37,9 @@ public class Minesweeper extends JFrame {
         /* Изменение стиля приложения */
         UIManager.setLookAndFeel(uiManager);
         /* Вызов конструктора класса Game */
-        game = new Game(COLS, ROWS);
-        /* Вызов метода start класса Game */
-        game.start();
+        game = new Game(COLS, ROWS, BOMBS);
+        /* Вызов метода initNewGame класса Game */
+        game.initNewGame();
         /* Вызов метода setImages класса Images */
         images.setImages();
         /* Вызов метода initJMenuBar класса Main */
