@@ -1,20 +1,23 @@
-import sweeper.Ranges;
 import sweeper.CoordinateSystem;
 import sweeper.Images;
-import sweeper.ImagesForCell;
+import sweeper.Game;
+import sweeper.Ranges;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Minesweeper extends JFrame {
+    /* Объект класса Game */
+    private Game game;
+
     /* Объект класса Images */
     private final Images images = new Images();
 
-    /* Размер оси координат X */
-    private final int SIZE_X = 16;
+    /* Количество столбцов игрового поля */
+    private final int COLS = 16;
 
-    /* Размер оси координат Y */
-    private final int SIZE_Y = 16;
+    /* Количество строк игрового поля */
+    private final int ROWS = 16;
 
     /* Размер ячейки игрового поля */
     private final int SIZE_CELL = 16;
@@ -28,10 +31,10 @@ public class Minesweeper extends JFrame {
     private Minesweeper() throws Exception {
         /* Стиль приложения */
         String uiManager = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+        /* Вызов конструктора класса Game */
+        game = new Game(COLS, ROWS);
         /* Изменение стиля приложения */
         UIManager.setLookAndFeel(uiManager);
-        /* Вызов статического метода setSize класса Cells */
-        Ranges.setSize(new CoordinateSystem(SIZE_X, SIZE_Y));
         /* Вызов метода setImages класса Images */
         images.setImages();
         /* Вызов метода initJMenuBar класса Main */
@@ -97,9 +100,13 @@ public class Minesweeper extends JFrame {
                 /* Вызов конструктора базового класса */
                 super.paintComponent(graphics);
 
+                /* Прохождение по списку всех координат оси X и Y */
                 for (CoordinateSystem coordinateSystem : Ranges.getAllCoordinates())
-                    graphics.drawImage(ImagesForCell.CLOSED.image, coordinateSystem.x * SIZE_CELL,
-                            coordinateSystem.y * SIZE_CELL, this);
+                    /* Установка элемента перечисления с учетом координат оси X и Y */
+                    graphics.drawImage(game.getImageFromCell(coordinateSystem).image,
+                            coordinateSystem.x * SIZE_CELL,
+                            coordinateSystem.y * SIZE_CELL,
+                            this);
             }
         };
         /* Установка предпочтительного размера компонента JPanel */
