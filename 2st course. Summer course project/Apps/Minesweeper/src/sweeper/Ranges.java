@@ -37,4 +37,10 @@ public class Ranges {
     public static ArrayList<CoordinateSystem> getAllCoordinates() {
         return allCoordinates;
     }
+
+    /* Проверка на нахождение указанной координаты на игровом поле */
+    static boolean inRangePlayingField(CoordinateSystem coordinateSystem) {
+        return coordinateSystem.x >= 0 && coordinateSystem.x < size.x &&
+                coordinateSystem.y >= 0 && coordinateSystem.y < size.y;
+    }
 }
