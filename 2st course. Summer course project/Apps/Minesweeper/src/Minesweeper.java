@@ -1,4 +1,4 @@
-import sweeper.Cells;
+import sweeper.Ranges;
 import sweeper.CoordinateSystem;
 import sweeper.Images;
 import sweeper.ImagesForCell;
@@ -31,7 +31,7 @@ public class Minesweeper extends JFrame {
         /* Изменение стиля приложения */
         UIManager.setLookAndFeel(uiManager);
         /* Вызов статического метода setSize класса Cells */
-        Cells.setSize(new CoordinateSystem(SIZE_X, SIZE_Y));
+        Ranges.setSize(new CoordinateSystem(SIZE_X, SIZE_Y));
         /* Вызов метода setImages класса Images */
         images.setImages();
         /* Вызов метода initJMenuBar класса Main */
@@ -97,15 +97,14 @@ public class Minesweeper extends JFrame {
                 /* Вызов конструктора базового класса */
                 super.paintComponent(graphics);
 
-                /* Прохождение по всем элементам перечисления */
-                for (ImagesForCell imagesForCell : ImagesForCell.values())
-                    /* Отображение элементов перечисления на игровом поле */
-                    graphics.drawImage(imagesForCell.image, imagesForCell.ordinal() * SIZE_CELL, 0, this);
+                for (CoordinateSystem coordinateSystem : Ranges.getAllCoordinates())
+                    graphics.drawImage(ImagesForCell.CLOSED.image, coordinateSystem.x * SIZE_CELL,
+                            coordinateSystem.y * SIZE_CELL, this);
             }
         };
         /* Установка предпочтительного размера компонента JPanel */
-        jPanel.setPreferredSize(new Dimension(Cells.getSize().x * SIZE_CELL,
-                Cells.getSize().y * SIZE_CELL));
+        jPanel.setPreferredSize(new Dimension(Ranges.getSize().x * SIZE_CELL,
+                Ranges.getSize().y * SIZE_CELL));
         /* Добавление компонента JPanel в окно приложения */
         add(jPanel);
     }
