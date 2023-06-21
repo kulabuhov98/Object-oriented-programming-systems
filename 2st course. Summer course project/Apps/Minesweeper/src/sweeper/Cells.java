@@ -15,7 +15,7 @@ public class Cells {
         size = xy;
 
         /* Список всех координат оси X и Y*/
-        allCoordinates = new ArrayList<CoordinateSystem>();
+        allCoordinates = new ArrayList<>();
         /* Прохождение по координатам оси Y */
         for (int y = 0; y < size.y; y++)
             /* Прохождение по координатам оси X */
@@ -27,5 +27,10 @@ public class Cells {
     /* Получение размера оси координат X и Y */
     public static CoordinateSystem getSize() {
         return size;
+    }
+
+    /* Получение списка всех координат оси X и Y */
+    public static ArrayList<CoordinateSystem> getAllCoordinates() {
+        return allCoordinates;
     }
 }
