@@ -7,11 +7,19 @@ public class Game {
     /* Карта для объектов нижнего слоя */
     private MapLayerBottom mapLayerBottom;
 
+    /* Текущее состояние игры */
+    private GameStateEnum gameState;
+
     /* Конструктор класса Game */
     public Game(int cols, int rows, int bombs) {
         Ranges.setSize(new CoordinateSystem(cols, rows));
         mapLayerTop = new MapLayerTop();
         mapLayerBottom = new MapLayerBottom(bombs);
+    }
+
+    /* Получение текущего состояния игры */
+    public GameStateEnum getGameState() {
+        return gameState;
     }
 
     /* Получение изображения из ячейки игрового поля */
@@ -31,6 +39,8 @@ public class Game {
         mapLayerTop.initMapLayerTop();
         /* Инициализация карты для объектов нижнего слоя */
         mapLayerBottom.initMapLayerBottom();
+        /* Установка состояние игры - в процессе игры */
+        gameState = GameStateEnum.PLAYED;
     }
 
     /* Обработка нажатия левой кнопки мыши */
