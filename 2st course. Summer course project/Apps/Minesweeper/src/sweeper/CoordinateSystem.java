@@ -12,4 +12,9 @@ public class CoordinateSystem {
         this.x = x;
         this.y = y;
     }
+
+    /* Сравнение координат по оси X и Y между собой */
+    public boolean equals() {
+        return false;
+    }
 }
