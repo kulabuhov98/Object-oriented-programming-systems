@@ -131,6 +131,10 @@ public class Minesweeper extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON1)
                     /* Вызов метода pressLeftMouseButton класса Game */
                     game.pressLeftMouseButton(coordinateSystem);
+                /* Нажата правая кнопка мыши */
+                if (e.getButton() == MouseEvent.BUTTON3)
+                    /* Вызов метода pressRightMouseButton класса Game */
+                    game.pressRightMouseButton(coordinateSystem);
                 /* Обновление JPanel */
                 jPanel.repaint();
             }
