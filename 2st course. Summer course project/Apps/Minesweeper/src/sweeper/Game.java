@@ -30,4 +30,10 @@ public class Game {
         mapLayerTop.initMapLayerTop();
         mapLayerBottom.initMapLayerBottom();
     }
+
+    /* Обработка нажатия левой кнопки мыши */
+    public void pressLeftMouseButton(CoordinateSystem coordinateSystem) {
+        mapLayerTop.setOpenedCell(coordinateSystem);
+    }
+
 }
