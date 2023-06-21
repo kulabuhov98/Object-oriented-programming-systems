@@ -2,13 +2,14 @@ package sweeper;
 
 public class Game {
     /* Карта для объектов нижнего слоя */
-    private MapMatrix mapLayerBottom;
+    private final MapLayerBottom mapLayerBottom;
     /* Карта для объектов верхнего слоя */
-    private MapMatrix mapLayerTop;
+    private MapLayerTop mapLayerTop;
 
     /* Конструктор класса Game */
-    public Game(int cols, int rows) {
+    public Game(int cols, int rows, int bombs) {
         Ranges.setSize(new CoordinateSystem(cols, rows));
+        mapLayerBottom = new MapLayerBottom(bombs);
     }
 
     /* Получение изображения из ячейки игрового поля */
@@ -17,7 +18,7 @@ public class Game {
     }
 
     /* Инициализация новой игры */
-    public void start() {
-        mapLayerBottom = new MapMatrix(ImagesEnum.NUM7);
+    public void initNewGame() {
+        mapLayerBottom.initMapLayerBottom();
     }
 }
