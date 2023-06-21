@@ -127,14 +127,18 @@ public class Minesweeper extends JFrame {
                 int y = e.getY() / SIZE_CELL;
                 /* Координата с данными о нажатии кнопки мыши */
                 CoordinateSystem coordinateSystem = new CoordinateSystem(x, y);
-                /* Нажата левая кнопка мыши */
+                /* Нажатие левой кнопки мыши */
                 if (e.getButton() == MouseEvent.BUTTON1)
                     /* Вызов метода pressLeftMouseButton класса Game */
                     game.pressLeftMouseButton(coordinateSystem);
-                /* Нажата правая кнопка мыши */
+                /* Нажатие правой кнопки мыши */
                 if (e.getButton() == MouseEvent.BUTTON3)
                     /* Вызов метода pressRightMouseButton класса Game */
                     game.pressRightMouseButton(coordinateSystem);
+                /* Нажатие средней кнопки мыши */
+                if (e.getButton() == MouseEvent.BUTTON2)
+                    /* Вызов метода initNewGame класса Game */
+                    game.initNewGame();
                 /* Обновление JPanel */
                 jPanel.repaint();
             }
