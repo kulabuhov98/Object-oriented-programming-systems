@@ -27,7 +27,9 @@ public class Game {
 
     /* Инициализация новой игры */
     public void initNewGame() {
+        /* Инициализация карты для объектов верхнего слоя */
         mapLayerTop.initMapLayerTop();
+        /* Инициализация карты для объектов нижнего слоя */
         mapLayerBottom.initMapLayerBottom();
     }
 
