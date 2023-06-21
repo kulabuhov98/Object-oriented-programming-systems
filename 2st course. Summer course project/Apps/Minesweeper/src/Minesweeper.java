@@ -114,11 +114,13 @@ public class Minesweeper extends JFrame {
     private String setTextGameStage() {
         /* Получение текущего состояния игры */
         return switch (game.getGameState()) {
+            /* Текущее состояние игры PLAYED */
+            case PLAYED -> "You play!";
             /* Текущее состояние игры BOMBED */
             case BOMBED -> "You lose!";
             /* Текущее состояние игры WINNER */
             case WINNER -> "You win!";
-            /* Текущее состояние игры PLAYED */
+            /* Прочие состояние игры */
             default -> "Developed By Kulabuhov98";
         };
     }
