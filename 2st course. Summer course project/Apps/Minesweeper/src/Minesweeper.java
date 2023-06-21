@@ -11,7 +11,7 @@ public class Minesweeper extends JFrame {
     private Game game;
 
     /* Объект класса Images */
-    private final Images images = new Images();
+    private Images images = new Images();
 
     /* Количество столбцов игрового поля по умолчанию */
     private final int COLS = 16;
