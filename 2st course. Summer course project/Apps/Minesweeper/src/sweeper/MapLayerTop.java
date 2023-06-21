@@ -14,4 +14,9 @@ class MapLayerTop {
     ImagesEnum getImageEnum(CoordinateSystem coordinateSystem) {
         return mapLayerTop.getImageEnum(coordinateSystem);
     }
+
+    /* Установка элемента перечисления OPENED в указанную координату */
+    void setOpenedCell(CoordinateSystem coordinateSystem) {
+        mapLayerTop.setImageEnum(coordinateSystem, ImagesEnum.OPENED);
+    }
 }
