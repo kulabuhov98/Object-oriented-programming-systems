@@ -1,6 +1,11 @@
 package sweeper;
 
 public class Game {
+    /* Карта для объектов нижнего слоя */
+    private MapMatrix mapLayerBottom;
+    /* Карта для объектов верхнего слоя */
+    private MapMatrix mapLayerTop;
+
     /* Конструктор класса Sweeper */
     public Game(int cols, int rows) {
         Ranges.setSize(new CoordinateSystem(cols, rows));
@@ -8,6 +13,11 @@ public class Game {
 
     /* Получение изображения из ячейки игрового поля */
     public ImagesEnum getImageFromCell(CoordinateSystem coordinateSystem) {
-        return ImagesEnum.values()[(coordinateSystem.x + coordinateSystem.y) % ImagesEnum.values().length];
+        return mapLayerBottom.getImageEnum(coordinateSystem);
+    }
+
+    /* Инициализация новой игры */
+    public void start() {
+        mapLayerBottom = new MapMatrix(ImagesEnum.NUM7);
     }
 }
