@@ -21,4 +21,9 @@ public enum ImagesEnum {
 
     /* Объект изображения */
     public Image image;
+
+    /* Увеличение числа от 1 до 8 */
+    ImagesEnum getNextNumber() {
+        return ImagesEnum.values()[this.ordinal() + 1];
+    }
 }
