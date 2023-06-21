@@ -5,12 +5,12 @@ import java.awt.*;
 import java.util.Objects;
 
 public class Images {
-    /* Установка взаимосвязи между изображениями из ресурсов проекта с элементами перечисления */
+    /* Установка взаимосвязи между изображениями из ресурсов проекта и элементами перечисления */
     public void setImages() {
         /* Прохождение по всем элементам перечисления */
-        for (ImagesForCell imagesForCell : ImagesForCell.values()) {
-            /* Установка взаимосвязи между изображением с элементом перечисления */
-            imagesForCell.image = getImage((imagesForCell.name()));
+        for (ImagesEnum imagesEnum : ImagesEnum.values()) {
+            /* Установка взаимосвязи между изображением и элементом перечисления */
+            imagesEnum.image = getImage((imagesEnum.name()));
         }
     }
 
@@ -20,7 +20,7 @@ public class Images {
         String resource = "../" + filename.toLowerCase() + ".png";
         /* Получение изображения из ресурсов проекта */
         ImageIcon imageIcon = new ImageIcon(Objects.requireNonNull(getClass().getResource(resource)));
-        /* Возвращение изображения для ячейки игрового поля */
+        /* Возвращение объекта изображения */
         return imageIcon.getImage();
     }
 }
