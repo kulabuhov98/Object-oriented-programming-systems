@@ -31,10 +31,12 @@ public class Minesweeper extends JFrame {
     private Minesweeper() throws Exception {
         /* Стиль приложения */
         String uiManager = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
-        /* Вызов конструктора класса Game */
-        game = new Game(COLS, ROWS);
         /* Изменение стиля приложения */
         UIManager.setLookAndFeel(uiManager);
+        /* Вызов конструктора класса Game */
+        game = new Game(COLS, ROWS);
+        /* Вызов метода start класса Game */
+        game.start();
         /* Вызов метода setImages класса Images */
         images.setImages();
         /* Вызов метода initJMenuBar класса Main */
