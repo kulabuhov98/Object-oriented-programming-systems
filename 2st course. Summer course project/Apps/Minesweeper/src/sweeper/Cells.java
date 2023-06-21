@@ -1,12 +1,27 @@
 package sweeper;
 
+import java.util.ArrayList;
+
 public class Cells {
     /* Значения размеров оси координат X и Y */
     private static CoordinateSystem size;
 
-    /* Установка размера оси координат X и Y */
+    /* Список всех координат X и Y */
+    private static ArrayList<CoordinateSystem> allCoordinates;
+
+    /* Установка размера оси и заполнение списка всех координат X и Y */
     public static void setSize(CoordinateSystem xy) {
+        /* Значения размеров оси координат X и Y */
         size = xy;
+
+        /* Список всех координат оси X и Y*/
+        allCoordinates = new ArrayList<CoordinateSystem>();
+        /* Прохождение по координатам оси Y */
+        for (int y = 0; y < size.y; y++)
+            /* Прохождение по координатам оси X */
+            for (int x = 0; x < size.x; x++)
+                /* Добавление новой координаты оси X и Y */
+                allCoordinates.add(new CoordinateSystem(x, y));
     }
 
     /* Получение размера оси координат X и Y */
