@@ -14,7 +14,17 @@ public class CoordinateSystem {
     }
 
     /* Сравнение координат по оси X и Y между собой */
-    public boolean equals() {
-        return false;
+    @Override
+    public boolean equals(Object obj) {
+        /* Является ли передаваемый объект координатой */
+        if (obj instanceof CoordinateSystem) {
+            /* Приведение obj к типу объекта CoordinateSystem */
+            CoordinateSystem coordinateSystem = (CoordinateSystem) obj;
+            /* Сравнение координат по оси X и Y между собой */
+            return coordinateSystem.x == x && coordinateSystem.y == y;
+        } else {
+            /* Использование базового метода equals */
+            return super.equals(obj);
+        }
     }
 }
