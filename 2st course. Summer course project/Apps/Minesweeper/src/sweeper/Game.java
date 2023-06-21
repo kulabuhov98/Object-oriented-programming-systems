@@ -6,7 +6,7 @@ public class Game {
     /* Карта для объектов верхнего слоя */
     private MapMatrix mapLayerTop;
 
-    /* Конструктор класса Sweeper */
+    /* Конструктор класса Game */
     public Game(int cols, int rows) {
         Ranges.setSize(new CoordinateSystem(cols, rows));
     }
