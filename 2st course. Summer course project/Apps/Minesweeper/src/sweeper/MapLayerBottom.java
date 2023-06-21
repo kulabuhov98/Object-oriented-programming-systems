@@ -15,13 +15,17 @@ class MapLayerBottom {
     void initMapLayerBottom() {
         /* Объект класса MapMatrix */
         mapLayerBottom = new MapMatrix(ImagesEnum.ZERO);
-        /* Размещение бомбы на игровом поле */
-        placeBomb();
+        /* Размещение бомб на игровом поле */
+        for (int i = 0; i < numberOfBombs; i++)
+            placeBomb();
     }
 
     /* Размещение бомбы на игровом поле */
     private void placeBomb() {
-
+        /* Получение случайной координаты оси X и Y */
+        CoordinateSystem coordinateSystem = Ranges.getRandomCoordinate();
+        /* Размещение бомбы на игровом поле */
+        mapLayerBottom.setImageEnum(coordinateSystem, ImagesEnum.BOMB);
     }
 
     /* Получение элемента перечисления из карты для объектов нижнего слоя с указаннами координатами */
