@@ -1,17 +1,21 @@
 package sweeper;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Ranges {
-    /* Значения размеров оси координат X и Y */
+    /* Значения размеров игрового поля */
     private static CoordinateSystem size;
 
     /* Список всех координат X и Y */
     private static ArrayList<CoordinateSystem> allCoordinates;
 
-    /* Установка размера оси и заполнение списка всех координат X и Y */
-    protected static void setSize(CoordinateSystem xy) {
-        /* Значения размеров оси координат X и Y */
+    /* Объект класса Random */
+    private static Random random = new Random();
+
+    /* Установка размера игрового поля и заполнение списка всех координат X и Y */
+    static void setSize(CoordinateSystem xy) {
+        /* Значения размеров игрового поля */
         size = xy;
 
         /* Список всех координат оси X и Y*/
@@ -24,7 +28,7 @@ public class Ranges {
                 allCoordinates.add(new CoordinateSystem(x, y));
     }
 
-    /* Получение размера оси координат X и Y */
+    /* Получение размера игрового поля */
     public static CoordinateSystem getSize() {
         return size;
     }
