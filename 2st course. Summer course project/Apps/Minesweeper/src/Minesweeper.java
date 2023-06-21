@@ -5,6 +5,8 @@ import sweeper.Ranges;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Minesweeper extends JFrame {
     /* Объект класса Game */
@@ -114,6 +116,25 @@ public class Minesweeper extends JFrame {
                             this);
             }
         };
+        /* Регистрация слушателя события мыши */
+        jPanel.addMouseListener(new MouseAdapter() {
+            /* Переопределение элемента родительского класса или суперкласса */
+            @Override
+            public void mousePressed(MouseEvent e) {
+                /* Координата нажатия кнопкой мыши по оси координат X */
+                int x = e.getX() / SIZE_CELL;
+                /* Координата нажатия кнопкой мыши по оси координат Y */
+                int y = e.getY() / SIZE_CELL;
+                /* Координата с данными о нажатии кнопки мыши */
+                CoordinateSystem coordinateSystem = new CoordinateSystem(x, y);
+                /* Нажата левая кнопка мыши */
+                if (e.getButton() == MouseEvent.BUTTON1)
+                    /* Вызов метода pressLeftMouseButton класса Game */
+                    game.pressLeftMouseButton(coordinateSystem);
+                /* Обновление JPanel */
+                jPanel.repaint();
+            }
+        });
         /* Установка предпочтительного размера компонента JPanel */
         jPanel.setPreferredSize(new Dimension(Ranges.getSize().x * SIZE_CELL,
                 Ranges.getSize().y * SIZE_CELL));
