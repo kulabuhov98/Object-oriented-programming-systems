@@ -9,6 +9,8 @@ class MapLayerBottom {
     /* Конструктор класса MapLayerBottom */
     MapLayerBottom (int numberOfBombs) {
         this.numberOfBombs = numberOfBombs;
+        /* Вызов метода limitingNumberOfBombs класса MapLayerBottom */
+        limitingNumberOfBombs();
     }
 
     /* Инициализация карты для объектов нижнего слоя */
@@ -22,12 +24,20 @@ class MapLayerBottom {
 
     /* Размещение бомбы на игровом поле */
     private void placeBomb() {
-        /* Получение случайной координаты оси X и Y */
-        CoordinateSystem coordinateSystem = Ranges.getRandomCoordinate();
-        /* Размещение бомбы на игровом поле */
-        mapLayerBottom.setImageEnum(coordinateSystem, ImagesEnum.BOMB);
-        /* Вызов метода incNumbersAroundBomb класса MapLayerBottom */
-        incNumbersAroundBomb(coordinateSystem);
+        /* Выбор координаты, в которой бомбы нет */
+        while (true) {
+            /* Получение случайной координаты оси X и Y */
+            CoordinateSystem coordinateSystem = Ranges.getRandomCoordinate();
+            /* В указанной для размещения координате есть бомба */
+            if (ImagesEnum.BOMB == mapLayerBottom.getImageEnum(coordinateSystem))
+                continue;
+            /* Размещение бомбы на игровом поле */
+            mapLayerBottom.setImageEnum(coordinateSystem, ImagesEnum.BOMB);
+            /* Вызов метода incNumbersAroundBomb класса MapLayerBottom */
+            incNumbersAroundBomb(coordinateSystem);
+            /* Конец цикла */
+            break;
+        }
     }
 
     /* Увеличение числа от 1 до 8 вокруг бомбы */
@@ -43,5 +53,15 @@ class MapLayerBottom {
     /* Получение элемента перечисления из карты для объектов нижнего слоя с указаннами координатами */
     ImagesEnum getImageEnum(CoordinateSystem coordinateSystem) {
         return mapLayerBottom.getImageEnum(coordinateSystem);
+    }
+
+    /* Ограничение количества одновременно размещаемых бомб на игровом поле */
+    private void limitingNumberOfBombs() {
+        /* Максимальное количество бомб на игровом поле */
+        int maxBombs = Ranges.getSize().x * Ranges.getSize().y / 2;
+        /* Сравнение установленного количества бомб с максимально возможных количеством на игровом поле */
+        if (numberOfBombs > maxBombs)
+            /* Установка максимального количества бомб на игровом поле */
+            numberOfBombs = maxBombs;
     }
 }
