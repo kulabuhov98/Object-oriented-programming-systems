@@ -43,4 +43,9 @@ public class Ranges {
         return coordinateSystem.x >= 0 && coordinateSystem.x < size.x &&
                 coordinateSystem.y >= 0 && coordinateSystem.y < size.y;
     }
+
+    /* Получение случайной координаты оси X и Y */
+    static CoordinateSystem getRandomCoordinate() {
+        return new CoordinateSystem(random.nextInt(size.x), random.nextInt(size.y));
+    }
 }
