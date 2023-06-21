@@ -2,7 +2,7 @@ package sweeper;
 
 public class Game {
     /* Карта для объектов нижнего слоя */
-    private final MapLayerBottom mapLayerBottom;
+    private MapLayerBottom mapLayerBottom;
     /* Карта для объектов верхнего слоя */
     private MapLayerTop mapLayerTop;
 
