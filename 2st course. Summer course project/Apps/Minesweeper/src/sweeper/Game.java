@@ -36,4 +36,9 @@ public class Game {
         mapLayerTop.setOpenedCell(coordinateSystem);
     }
 
+    /* Обработка нажатия правой кнопки мыши */
+    public void pressRightMouseButton(CoordinateSystem coordinateSystem) {
+        mapLayerTop.toggleFlagedCell(coordinateSystem);
+    }
+
 }
