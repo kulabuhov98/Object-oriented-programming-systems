@@ -2,7 +2,7 @@ package sweeper;
 
 class MapMatrix {
     /* Элементы перечисления в виде матрицы */
-    private final ImagesEnum[][] matrix;
+    private ImagesEnum[][] matrix;
 
     /* Конструктор класса MapMatrix */
     MapMatrix(ImagesEnum imagesEnum) {
