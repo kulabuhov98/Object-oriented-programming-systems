@@ -18,12 +18,20 @@ class MapLayerBottom {
         mapLayerBottom = new MapMatrix(ImagesEnum.ZERO);
         /* Размещение бомб на игровом поле */
         for (int i = 0; i < numberOfBombs; i++)
+            /* Вызов метода placeBomb класса MapLayerBottom */
             placeBomb();
     }
 
     /* Получение количества бомб на игровом поле */
     int getNumberOfBombs() {
+        /* Возвращение количества бомб на игровом поле */
         return numberOfBombs;
+    }
+
+    /* Получение элемента перечисления из карты для объектов нижнего слоя с указаннами координатами */
+    ImagesEnum getImageEnum(CoordinateSystem coordinateSystem) {
+        /* Вызов метода getImageEnum класса MapMatrix */
+        return mapLayerBottom.getImageEnum(coordinateSystem);
     }
 
     /* Размещение бомбы на игровом поле */
@@ -52,11 +60,6 @@ class MapLayerBottom {
             if (ImagesEnum.BOMB != mapLayerBottom.getImageEnum(around))
                 /* Увеличение числа от 1 до 8 */
                 mapLayerBottom.setImageEnum(around, mapLayerBottom.getImageEnum(around).getNextNumber());
-    }
-
-    /* Получение элемента перечисления из карты для объектов нижнего слоя с указаннами координатами */
-    ImagesEnum getImageEnum(CoordinateSystem coordinateSystem) {
-        return mapLayerBottom.getImageEnum(coordinateSystem);
     }
 
     /* Ограничение количества одновременно размещаемых бомб на игровом поле */
