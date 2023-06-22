@@ -5,6 +5,8 @@ import sweeper.Ranges;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -14,6 +16,9 @@ public class Minesweeper extends JFrame {
 
     /* Объект класса Images */
     private Images images = new Images();
+
+    /* Объект класса JPanel */
+    private JPanel jPanel = new JPanel();
 
     /* Количество столбцов игрового поля по умолчанию */
     private final int COLS = 16;
@@ -95,12 +100,21 @@ public class Minesweeper extends JFrame {
 
         /* Добавление компонента jMenuBar в окно приложения */
         add(jMenuBar, BorderLayout.NORTH);
+
+        /* Регистрация слушателя события мыши дополнительного элемента New */
+        /* Переопределение элемента родительского класса или суперкласса */
+        newJMenuItem.addActionListener(e -> {
+            /* Вызов метода initNewGame класса Game */
+            game.initNewGame();
+            /* Обновление JPanel */
+            jPanel.repaint();
+        });
     }
 
     /* Инициализация JPanel */
     private void initJPanel() {
         /* Элемент управления, представляющий собой прямоугольное пространство */
-        JPanel jPanel = new JPanel() {
+        jPanel = new JPanel() {
             /* Переопределение элемента родительского класса или суперкласса */
             @Override
             protected void paintComponent(Graphics graphics) {
