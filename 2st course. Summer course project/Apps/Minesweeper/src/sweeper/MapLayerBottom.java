@@ -9,6 +9,7 @@ class MapLayerBottom {
     /* Конструктор класса MapLayerBottom */
     MapLayerBottom (int numberOfBombs) {
         this.numberOfBombs = numberOfBombs;
+        /* Вызов метода limitingNumberOfBombs класса MapLayerBottom */
         limitingNumberOfBombs();
     }
 
