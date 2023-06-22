@@ -27,6 +27,11 @@ public class Game {
         gameState = GameStateEnum.PLAYED;
     }
 
+    /* Получение текущего состояния игры */
+    public GameStateEnum getGameState() {
+        return gameState;
+    }
+
     /* Получение изображения из ячейки игрового поля */
     public ImagesEnum getImageFromCell(CoordinateSystem coordinateSystem) {
         /* Ячейка на игровом поле открыта */
@@ -61,7 +66,7 @@ public class Game {
                     /* Является ли указанная ячейка пустой */
                     case ZERO: setOpenedCellAround(coordinateSystem); return;
                     /* Находится ли в указанной координате бомба */
-                    case BOMB: return;
+                    case BOMB: setBombedCell(); return;
                     /* Находятся ли в указанной координате цифры 1 - 8 */
                     default: mapLayerTop.setOpenedCell(coordinateSystem); return;
                 }
