@@ -15,13 +15,21 @@ class MapLayerTop {
         numberOfClosedCells = Ranges.getSize().x * Ranges.getSize().y;
     }
 
+    /* Получение количества закрытых ячеек на игровом поле */
+    int getNumberOfClosedCells() {
+        /* Возвращение количества закрытых ячеек на игровом поле */
+        return numberOfClosedCells;
+    }
+
     /* Получение элемента перечисления из карты для объектов верхнего слоя с указаннами координатами */
     ImagesEnum getImageEnum(CoordinateSystem coordinateSystem) {
+        /* Вызов метода getImageEnum класса MapMatrix */
         return mapLayerTop.getImageEnum(coordinateSystem);
     }
 
     /* Установка элемента перечисления OPENED в указанную координату */
     void setOpenedCell(CoordinateSystem coordinateSystem) {
+        /* Вызов метода setImageEnum класса MapMatrix */
         mapLayerTop.setImageEnum(coordinateSystem, ImagesEnum.OPENED);
         /* Уменьшее количества закрытых ячеек на игровом поле */
         numberOfClosedCells--;
@@ -29,11 +37,13 @@ class MapLayerTop {
 
     /* Установка элемента перечисления FLAGED в указанную координату */
     void setFlagedCell(CoordinateSystem coordinateSystem) {
+        /* Вызов метода setImageEnum класса MapMatrix */
         mapLayerTop.setImageEnum(coordinateSystem, ImagesEnum.FLAGED);
     }
 
     /* Установка элемента перечисления CLOSED в указанную координату */
     void setClosedCell(CoordinateSystem coordinateSystem) {
+        /* Вызов метода setImageEnum класса MapMatrix */
         mapLayerTop.setImageEnum(coordinateSystem, ImagesEnum.CLOSED);
     }
 
@@ -46,10 +56,5 @@ class MapLayerTop {
             /* Установка элемента перечисления CLOSED в указанную координату */
             case CLOSED -> setFlagedCell(coordinateSystem);
         }
-    }
-
-    /* Получение количества закрытых ячеек на игровом поле */
-    int getNumberOfClosedCells() {
-        return numberOfClosedCells;
     }
 }
