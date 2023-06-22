@@ -45,10 +45,12 @@ public class Game {
 
     /* Обработка нажатия левой кнопки мыши */
     public void pressLeftMouseButton(CoordinateSystem coordinateSystem) {
+        /* Если текущее состояние игры - проигрыш в игре */
+        if (checkGameLoss()) return;
         /* Вызов метода cellBehavior класса Game */
         cellBehavior(coordinateSystem);
-        /* Вызов метода checkGameWinner класса Game */
-        checkGameWinner();
+        /* Вызов метода checkGameWin класса Game */
+        checkGameWin();
     }
 
     /* Обработка поведения ячейки верхнего слоя игрового поля */
@@ -64,11 +66,11 @@ public class Game {
                 /* Получение текущего элемента перечисления в указанной координате на нижнем слое игрового поля */
                 switch (mapLayerBottom.getImageEnum(coordinateSystem)) {
                     /* Если в указанной координате установлен элемент перечисления ZERO */
-                    case ZERO: setOpenedCellAround(coordinateSystem); return;
+                    case ZERO -> setOpenedCellAround(coordinateSystem);
                     /* Если в указанной координате установлен элемент перечисления BOMB */
-                    case BOMB: openBombCell(coordinateSystem); return;
+                    case BOMB -> openBombCell(coordinateSystem);
                     /* Если в указанной координате установлен элемент перечисления NUM1 - NUM8 */
-                    default: mapLayerTop.setOpenedCell(coordinateSystem); return;
+                    default -> mapLayerTop.setOpenedCell(coordinateSystem);
                 }
         }
     }
@@ -100,9 +102,18 @@ public class Game {
             cellBehavior(around);
     }
 
+    /* Обработка нажатия правой кнопки мыши */
+    public void pressRightMouseButton(CoordinateSystem coordinateSystem) {
+        /* Если текущее состояние игры - проигрыш в игре */
+        if (checkGameLoss()) return;
+        /* Вызов метода toggleFlagedCell класса MapLayerTop */
+        mapLayerTop.toggleFlagedCell(coordinateSystem);
+    }
+
+
     /* Определение победы в игре */
-    private void checkGameWinner() {
-        /* Текущее состояние игры - в процессе игры */
+    private void checkGameWin() {
+        /* Если текущее состояние игры - в процессе игры */
         if (gameState == GameStateEnum.PLAYED)
             /* Количество закрытых ячеек совпадает с количеством бомб на игровом поле */
             if (mapLayerTop.getNumberOfClosedCells() == mapLayerBottom.getNumberOfBombs())
@@ -110,9 +121,13 @@ public class Game {
                 gameState = GameStateEnum.WINNER;
     }
 
-    /* Обработка нажатия правой кнопки мыши */
-    public void pressRightMouseButton(CoordinateSystem coordinateSystem) {
-        mapLayerTop.toggleFlagedCell(coordinateSystem);
+    /* Определение проигрыша в игре */
+    private boolean checkGameLoss() {
+        /* Если текущее состояние игры - в процессе игры */
+        if (gameState == GameStateEnum.PLAYED)
+            return false;
+        /* Вызов метода initNewGame класса Game */
+        initNewGame();
+        return true;
     }
-
 }
