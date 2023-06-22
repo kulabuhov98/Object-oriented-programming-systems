@@ -9,7 +9,6 @@ class MapLayerBottom {
     /* Конструктор класса MapLayerBottom */
     MapLayerBottom (int numberOfBombs) {
         this.numberOfBombs = numberOfBombs;
-        /* Вызов метода limitingNumberOfBombs класса MapLayerBottom */
         limitingNumberOfBombs();
     }
 
@@ -44,7 +43,7 @@ class MapLayerBottom {
     private void incNumbersAroundBomb(CoordinateSystem coordinateSystem) {
         /* Прохождение по списку всех координат оси X и Y вокруг указанной координаты */
         for (CoordinateSystem around : Ranges.getCoordinatesAround(coordinateSystem))
-            /* Находится ли в указанной коориднате бомба */
+            /* Находится ли в указанной координате бомба */
             if (ImagesEnum.BOMB != mapLayerBottom.getImageEnum(around))
                 /* Увеличение числа от 1 до 8 */
                 mapLayerBottom.setImageEnum(around, mapLayerBottom.getImageEnum(around).getNextNumber());
