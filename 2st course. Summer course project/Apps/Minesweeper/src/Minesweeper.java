@@ -149,10 +149,6 @@ public class Minesweeper extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON3)
                     /* Вызов метода pressRightMouseButton класса Game */
                     game.pressRightMouseButton(coordinateSystem);
-                /* Нажатие средней кнопки мыши */
-                if (e.getButton() == MouseEvent.BUTTON2)
-                    /* Вызов метода initNewGame класса Game */
-                    game.initNewGame();
                 /* Обновление JPanel */
                 jPanel.repaint();
             }
