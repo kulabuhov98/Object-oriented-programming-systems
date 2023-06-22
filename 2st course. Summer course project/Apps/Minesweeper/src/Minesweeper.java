@@ -5,8 +5,6 @@ import sweeper.Ranges;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -102,12 +100,17 @@ public class Minesweeper extends JFrame {
         add(jMenuBar, BorderLayout.NORTH);
 
         /* Регистрация слушателя события мыши дополнительного элемента New */
-        /* Переопределение элемента родительского класса или суперкласса */
         newJMenuItem.addActionListener(e -> {
             /* Вызов метода initNewGame класса Game */
             game.initNewGame();
             /* Обновление JPanel */
             jPanel.repaint();
+        });
+
+        /* Регистрация слушателя события мыши дополнительного элемента Exit */
+        exitJMenuItem.addActionListener(e -> {
+            /* Выход и завершение работы приложения */
+            System.exit(1);
         });
     }
 
