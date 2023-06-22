@@ -46,6 +46,28 @@ class MapLayerTop {
         mapLayerTop.setImageEnum(coordinateSystem, ImagesEnum.CLOSED);
     }
 
+    /* Установка элемента перечисления BOMBED в указанную координату */
+    void setBombedCell(CoordinateSystem coordinateSystem) {
+        /* Вызов метода setImageEnum класса MapMatrix */
+        mapLayerTop.setImageEnum(coordinateSystem, ImagesEnum.BOMBED);
+    }
+
+    /* Установка элемента перечисления OPENED в указанную координату с элементом перечисления BOMB */
+    void setOpenedCellToBomb(CoordinateSystem coordinates) {
+        /* Если в указанной координате установлен элемент перечисления CLOSED */
+        if (mapLayerTop.getImageEnum(coordinates) == ImagesEnum.CLOSED)
+            /* Установка элемента перечисления OPENED в указанную координату */
+            mapLayerTop.setImageEnum(coordinates, ImagesEnum.OPENED);
+    }
+
+    /* Установка элемента перечисления NOBOMB в указанную координату с элементом перечисления FLAGED */
+    void setFlagedCellToNobomb(CoordinateSystem coordinates) {
+        /* Если в указанной координате установлен элемент перечисления FLAGED */
+        if (mapLayerTop.getImageEnum(coordinates) == ImagesEnum.FLAGED)
+            /* Установка элемента перечисления OPENED в указанную координату */
+            mapLayerTop.setImageEnum(coordinates, ImagesEnum.NOBOMB);
+    }
+
     /* Переключатель элемента перечисления FLAGGED и CLOSED в уканной координате */
     void toggleFlagedCell(CoordinateSystem coordinateSystem) {
         /* Получение текущего элемента перечисления в указанной координате */
