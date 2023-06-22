@@ -139,6 +139,8 @@ public class Minesweeper extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON2)
                     /* Вызов метода initNewGame класса Game */
                     game.initNewGame();
+
+                /*setTextGameStage();*/
                 /* Обновление JPanel */
                 jPanel.repaint();
             }
@@ -167,4 +169,13 @@ public class Minesweeper extends JFrame {
         /* Установки иконки приложения */
         setIconImage(images.getImage("icon"));
     }
+
+/*    private void setTextGameStage() {
+        switch (game.getGameState()) {
+            case PLAYED -> System.out.println("PLAYED");
+            case BOMBED -> System.out.println("BOMBED");
+            case WINNER -> System.out.println("WINNER");
+            default -> System.out.println("DEFAULT");
+        };
+    }*/
 }
