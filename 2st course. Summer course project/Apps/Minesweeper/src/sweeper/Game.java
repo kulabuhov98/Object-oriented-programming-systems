@@ -40,7 +40,10 @@ public class Game {
 
     /* Обработка нажатия левой кнопки мыши */
     public void pressLeftMouseButton(CoordinateSystem coordinateSystem) {
+        /* Вызов метода cellBehavior класса Game */
         cellBehavior(coordinateSystem);
+        /* Вызов метода checkGameWinner класса Game */
+        checkGameWinner();
     }
 
     /* Обработка поведения ячейки верхнего слоя игрового поля */
@@ -77,7 +80,12 @@ public class Game {
 
     /* Определение победы в игре */
     private void checkGameWinner() {
-        
+        /* Текущее состояние игры - в процессе игры */
+        if (gameState == GameStateEnum.PLAYED)
+            /* Количество закрытых ячеек совпадает с количеством бомб на игровом поле */
+            if (mapLayerTop.getNumberOfClosedCells() == mapLayerBottom.getNumberOfBombs())
+                /* Установка состояние игры - победа в игре */
+                gameState = GameStateEnum.WINNER;
     }
 
     /* Обработка нажатия правой кнопки мыши */
