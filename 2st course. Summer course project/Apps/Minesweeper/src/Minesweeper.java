@@ -9,9 +9,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class Minesweeper extends JFrame {
-    /* Объект класса JLabel - gameStateLabel */
-    private JLabel gameStateLabel;
-
     /* Объект класса Game */
     private Game game;
 
@@ -51,8 +48,6 @@ public class Minesweeper extends JFrame {
         initJMenuBar();
         /* Вызов метода initJPanel класса Main */
         initJPanel();
-        /* Вызов метода initJLabel класса Main */
-        initJLabel();
         /* Вызов метода initJFrame класса Main */
         initJFrame();
     }
@@ -102,29 +97,6 @@ public class Minesweeper extends JFrame {
         add(jMenuBar, BorderLayout.NORTH);
     }
 
-    /* Инициализация JLabel */
-    private void initJLabel() {
-        /* Экземляр класса JLabel со значением по умолчанию */
-        gameStateLabel = new JLabel("Developed By Kulabuhov98");
-        /* Добавление компонента JLabel в окно приложения */
-        add(gameStateLabel, BorderLayout.SOUTH);
-    }
-
-    /* Вывод текущего состояния игры в основное окно приложения */
-    private String setTextGameStage() {
-        /* Получение текущего состояния игры */
-        return switch (game.getGameState()) {
-            /* Текущее состояние игры PLAYED */
-            case PLAYED -> "You play!";
-            /* Текущее состояние игры BOMBED */
-            case BOMBED -> "You lose!";
-            /* Текущее состояние игры WINNER */
-            case WINNER -> "You win!";
-            /* Прочие состояние игры */
-            default -> "Developed By Kulabuhov98";
-        };
-    }
-
     /* Инициализация JPanel */
     private void initJPanel() {
         /* Элемент управления, представляющий собой прямоугольное пространство */
@@ -167,8 +139,6 @@ public class Minesweeper extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON2)
                     /* Вызов метода initNewGame класса Game */
                     game.initNewGame();
-                /* Установка текста в экземляр gameStateLabel класса JLabel */
-                gameStateLabel.setText(setTextGameStage());
                 /* Обновление JPanel */
                 jPanel.repaint();
             }
