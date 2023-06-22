@@ -53,12 +53,18 @@ public class Game {
         checkGameWin();
     }
 
+    /* Обработка нажатия правой кнопки мыши */
+    public void pressRightMouseButton(CoordinateSystem coordinateSystem) {
+        /* Если текущее состояние игры - проигрыш в игре */
+        if (checkGameLoss()) return;
+        /* Вызов метода toggleFlagedCell класса MapLayerTop */
+        mapLayerTop.toggleFlagedCell(coordinateSystem);
+    }
+
     /* Обработка поведения ячейки верхнего слоя игрового поля */
     private void cellBehavior(CoordinateSystem coordinateSystem) {
         /* Получение текущего элемента перечисления в указанной координате на верхнем слое игрового поля */
         switch (mapLayerTop.getImageEnum(coordinateSystem)) {
-            /* Если в указанной координате установлен элемент перечисления OPENED */
-            case OPENED: return;
             /* Если в указанной координате установлен элемент перечисления FLAGED */
             case FLAGED: return;
             /* Если в указанной координате установлен элемент перечисления CLOSED */
@@ -101,15 +107,6 @@ public class Game {
             /* Вызов метода cellBehavior класса Game */
             cellBehavior(around);
     }
-
-    /* Обработка нажатия правой кнопки мыши */
-    public void pressRightMouseButton(CoordinateSystem coordinateSystem) {
-        /* Если текущее состояние игры - проигрыш в игре */
-        if (checkGameLoss()) return;
-        /* Вызов метода toggleFlagedCell класса MapLayerTop */
-        mapLayerTop.toggleFlagedCell(coordinateSystem);
-    }
-
 
     /* Определение победы в игре */
     private void checkGameWin() {
