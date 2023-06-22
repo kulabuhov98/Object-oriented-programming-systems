@@ -25,7 +25,6 @@ class MapLayerBottom {
 
     /* Получение количества бомб на игровом поле */
     int getNumberOfBombs() {
-        /* Возвращение количества бомб на игровом поле */
         return numberOfBombs;
     }
 
