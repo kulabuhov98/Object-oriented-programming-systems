@@ -139,7 +139,6 @@ public class Minesweeper extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON2)
                     /* Вызов метода initNewGame класса Game */
                     game.initNewGame();
-
                 /* Обновление JPanel */
                 jPanel.repaint();
             }
