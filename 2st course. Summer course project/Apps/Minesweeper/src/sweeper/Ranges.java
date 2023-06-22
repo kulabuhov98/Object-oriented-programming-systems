@@ -13,6 +13,16 @@ public class Ranges {
     /* Объект класса Random */
     private static Random random = new Random();
 
+    /* Получение размера игрового поля */
+    public static CoordinateSystem getSize() {
+        return size;
+    }
+
+    /* Получение списка всех координат оси X и Y */
+    public static ArrayList<CoordinateSystem> getAllCoordinates() {
+        return allCoordinates;
+    }
+
     /* Установка размера игрового поля и заполнение списка всех координат X и Y */
     static void setSize(CoordinateSystem xy) {
         /* Значения размеров игрового поля */
@@ -26,16 +36,6 @@ public class Ranges {
             for (int x = 0; x < size.x; x++)
                 /* Добавление новой координаты оси X и Y */
                 allCoordinates.add(new CoordinateSystem(x, y));
-    }
-
-    /* Получение размера игрового поля */
-    public static CoordinateSystem getSize() {
-        return size;
-    }
-
-    /* Получение списка всех координат оси X и Y */
-    public static ArrayList<CoordinateSystem> getAllCoordinates() {
-        return allCoordinates;
     }
 
     /* Проверка на нахождение указанной координаты на игровом поле */
