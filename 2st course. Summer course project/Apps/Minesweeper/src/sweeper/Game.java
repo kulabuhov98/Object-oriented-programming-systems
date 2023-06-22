@@ -123,8 +123,6 @@ public class Game {
         /* Если текущее состояние игры - в процессе игры */
         if (gameState == GameStateEnum.PLAYED)
             return false;
-        /* Вызов метода initNewGame класса Game */
-        initNewGame();
         return true;
     }
 }
