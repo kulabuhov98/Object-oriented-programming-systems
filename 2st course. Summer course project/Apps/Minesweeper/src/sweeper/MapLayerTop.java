@@ -31,7 +31,7 @@ class MapLayerTop {
         }
     }
 
-    /* Установка элемента перечисления CLOSED в указанную координату */
+    /* Установка элемента перечисления FLAGED в указанную координату */
     void setFlagedCell(CoordinateSystem coordinateSystem) {
         mapLayerTop.setImageEnum(coordinateSystem, ImagesEnum.FLAGED);
     }
