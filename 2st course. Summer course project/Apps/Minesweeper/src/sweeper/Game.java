@@ -34,7 +34,7 @@ public class Game {
 
     /* Получение изображения из ячейки игрового поля */
     public ImagesEnum getImageFromCell(CoordinateSystem coordinateSystem) {
-        /* Ячейка на игровом поле открыта */
+        /* Если в указанной координате установлен элемент перечисления OPENED */
         if (mapLayerTop.getImageEnum(coordinateSystem) == ImagesEnum.OPENED)
             /* Взаимодействие с картой для объектов нижнего слоя */
             return mapLayerBottom.getImageEnum(coordinateSystem);
@@ -55,22 +55,39 @@ public class Game {
     private void cellBehavior(CoordinateSystem coordinateSystem) {
         /* Получение текущего элемента перечисления в указанной координате на верхнем слое игрового поля */
         switch (mapLayerTop.getImageEnum(coordinateSystem)) {
-            /* Является ли указанная ячейка открытой */
+            /* Если в указанной координате установлен элемент перечисления OPENED */
             case OPENED: return;
-            /* Находится ли в указанной координате флаг */
+            /* Если в указанной координате установлен элемент перечисления FLAGED */
             case FLAGED: return;
-            /* Является ли указанная ячейка закрытой */
+            /* Если в указанной координате установлен элемент перечисления CLOSED */
             case CLOSED:
                 /* Получение текущего элемента перечисления в указанной координате на нижнем слое игрового поля */
                 switch (mapLayerBottom.getImageEnum(coordinateSystem)) {
-                    /* Является ли указанная ячейка пустой */
+                    /* Если в указанной координате установлен элемент перечисления ZERO */
                     case ZERO: setOpenedCellAround(coordinateSystem); return;
-                    /* Находится ли в указанной координате бомба */
-                    case BOMB: setBombedCell(); return;
-                    /* Находятся ли в указанной координате цифры 1 - 8 */
+                    /* Если в указанной координате установлен элемент перечисления BOMB */
+                    case BOMB: openBombCell(coordinateSystem); return;
+                    /* Если в указанной координате установлен элемент перечисления NUM1 - NUM8 */
                     default: mapLayerTop.setOpenedCell(coordinateSystem); return;
                 }
         }
+    }
+
+    /* Открытие ячеек на игровом поле содержащих бомбу */
+    private void openBombCell(CoordinateSystem coordinateSystem) {
+        /* Установка состояние игры - проигрыш в игре */
+        gameState = GameStateEnum.BOMBED;
+        /* Вызов метода setBombedCell класса MapLayerTop */
+        mapLayerTop.setBombedCell(coordinateSystem);
+        /* Прохождение по списку всех координат оси X и Y */
+        for (CoordinateSystem coordinates : Ranges.getAllCoordinates())
+            /* Если в указанной координате установлен элемент перечисления BOMB */
+            if (mapLayerBottom.getImageEnum(coordinates) == ImagesEnum.BOMB)
+                /* Вызов метода setOpenedCellToBomb класса MapLayerTop */
+                mapLayerTop.setOpenedCellToBomb(coordinates);
+            else
+                /* Вызов метода setFlagedCellToNobomb класса MapLayerTop */
+                mapLayerTop.setFlagedCellToNobomb(coordinates);
     }
 
     /* Установка элемента перечисления OPENED вокруг указанной координаты */
