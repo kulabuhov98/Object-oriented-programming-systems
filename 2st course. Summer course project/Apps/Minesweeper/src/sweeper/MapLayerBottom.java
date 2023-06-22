@@ -3,7 +3,7 @@ package sweeper;
 class MapLayerBottom {
     /* Карта для объектов нижнего слоя */
     private MapMatrix mapLayerBottom;
-    /* Общее количество бомб на игровом поле */
+    /* Количество бомб на игровом поле */
     private int numberOfBombs;
 
     /* Конструктор класса MapLayerBottom */
@@ -19,6 +19,11 @@ class MapLayerBottom {
         /* Размещение бомб на игровом поле */
         for (int i = 0; i < numberOfBombs; i++)
             placeBomb();
+    }
+
+    /* Получение количества бомб на игровом поле */
+    int getNumberOfBombs() {
+        return numberOfBombs;
     }
 
     /* Размещение бомбы на игровом поле */
