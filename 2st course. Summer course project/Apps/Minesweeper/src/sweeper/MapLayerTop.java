@@ -17,7 +17,6 @@ class MapLayerTop {
 
     /* Получение количества закрытых ячеек на игровом поле */
     int getNumberOfClosedCells() {
-        /* Возвращение количества закрытых ячеек на игровом поле */
         return numberOfClosedCells;
     }
 
