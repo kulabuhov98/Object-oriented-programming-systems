@@ -15,6 +15,13 @@ public class Minesweeper extends JFrame {
     /* Объект класса JPanel */
     private JPanel jPanel = new JPanel();
 
+    /* Количество столбцов игрового поля по умолчанию */
+    private final int COLS = 16;
+    /* Количество строк игрового поля по умолчанию */
+    private final int ROWS = 16;
+    /* Количество бомб на игровом поле по умолчанию */
+    private final int BOMBS = 10;
+
     /* Размер ячейки игрового поля */
     private final int SIZE_CELL = 16;
 
@@ -29,16 +36,8 @@ public class Minesweeper extends JFrame {
         String uiManager = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
         /* Изменение стиля приложения */
         UIManager.setLookAndFeel(uiManager);
-
-        /* Количество столбцов игрового поля по умолчанию */
-        int cols = 16;
-        /* Количество строк игрового поля по умолчанию */
-        int rows = 16;
-        /* Количество бомб на игровом поле по умолчанию */
-        int bombs = 10;
-
         /* Вызов метода initMinesweeper класса Minesweeper */
-        initMinesweeper(cols, rows, bombs);
+        initMinesweeper(COLS, ROWS, BOMBS);
     }
 
     /* Инициализация основного окна приложения */
@@ -103,6 +102,12 @@ public class Minesweeper extends JFrame {
             game.initNewGame();
             /* Обновление JPanel */
             jPanel.repaint();
+        });
+
+        /* Регистрация слушателя события дополнительного элемента Beginner */
+        beginnerJMenuItem.addActionListener(e -> {
+            /* Вызов метода initMinesweeper класса Minesweeper */
+            initMinesweeper(COLS, ROWS, BOMBS);
         });
 
         /* Регистрация слушателя события дополнительного элемента Intermediate */
