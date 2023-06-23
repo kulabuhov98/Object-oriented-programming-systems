@@ -113,13 +113,13 @@ public class Minesweeper extends JFrame {
         /* Регистрация слушателя события дополнительного элемента Intermediate */
         intermediateJMenuItem.addActionListener(e -> {
             /* Вызов метода initMinesweeper класса Minesweeper */
-            initMinesweeper(32, 32, 20);
+            initMinesweeper(32, 32, 32);
         });
 
         /* Регистрация слушателя события дополнительного элемента Expert */
         expertJMenuItem.addActionListener(e -> {
             /* Вызов метода initMinesweeper класса Minesweeper */
-            initMinesweeper(48, 48, 30);
+            initMinesweeper(48, 48, 48);
         });
 
         /* Регистрация слушателя события дополнительного элемента Exit */
