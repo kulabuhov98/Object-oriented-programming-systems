@@ -136,7 +136,7 @@ public class Minesweeper extends JFrame {
         /* Регистрация слушателя события дополнительного элемента About the developer */
         aboutTheDeveloperJMenuItem.addActionListener(e -> {
             /* Вызов метода initJOptionPane класса Main */
-            initJOptionPane("");
+            initJOptionPane("Developed By Kulabuhov98 © 2023");
         });
     }
 
