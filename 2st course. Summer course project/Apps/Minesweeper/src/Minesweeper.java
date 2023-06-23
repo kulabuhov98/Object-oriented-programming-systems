@@ -23,7 +23,7 @@ public class Minesweeper extends JFrame {
         new Minesweeper();
     }
 
-    /* Основной экран приложения */
+    /* Конструктор класса Minesweeper */
     private Minesweeper() throws Exception {
         /* Стиль приложения */
         String uiManager = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
@@ -31,14 +31,20 @@ public class Minesweeper extends JFrame {
         UIManager.setLookAndFeel(uiManager);
 
         /* Количество столбцов игрового поля по умолчанию */
-        int COLS = 16;
+        int cols = 16;
         /* Количество строк игрового поля по умолчанию */
-        int ROWS = 16;
+        int rows = 16;
         /* Количество бомб на игровом поле по умолчанию */
-        int BOMBS = 10;
+        int bombs = 10;
 
+        /* Вызов метода initMinesweeper класса Minesweeper */
+        initMinesweeper(cols, rows, bombs);
+    }
+
+    /* Инициализация основного окна приложения */
+    private void initMinesweeper(int cols, int rows, int bombs) {
         /* Вызов конструктора класса Game */
-        game = new Game(COLS, ROWS, BOMBS);
+        game = new Game(cols, rows, bombs);
         /* Вызов метода initNewGame класса Game */
         game.initNewGame();
         /* Вызов метода setImages класса Images */
@@ -57,17 +63,13 @@ public class Minesweeper extends JFrame {
         JMenuBar jMenuBar = new JMenuBar();
 
         /* Основной элемент меню Game */
-        JMenu gameJMenu = new JMenu("Game");
-        /* Основной элемент меню Help */
-        JMenu helpJMenu = new JMenu("Help");
+        JMenu gameJMenu = new JMenu("Игра");
 
         /* Добавление основного элемента Game в меню */
         jMenuBar.add(gameJMenu);
-        /* Добавление основного элемента Help в меню */
-        jMenuBar.add(helpJMenu);
 
         /* Дополнительный элемент New основного элемента меню Game */
-        JMenuItem newJMenuItem = new JMenuItem("New");
+        JMenuItem newJMenuItem = new JMenuItem("Новая игра");
         /* Дополнительный элемент Beginner основного элемента меню Game */
         JMenuItem beginnerJMenuItem = new JMenuItem("Beginner");
         /* Дополнительный элемент Intermediate основного элемента меню Game */
@@ -75,12 +77,7 @@ public class Minesweeper extends JFrame {
         /* Дополнительный элемент Expert основного элемента меню Game */
         JMenuItem expertJMenuItem = new JMenuItem("Expert");
         /* Дополнительный элемент Exit основного элемента меню Game */
-        JMenuItem exitJMenuItem = new JMenuItem("Exit");
-
-        /* Дополнительный элемент About minesweeper основного элемента меню Help */
-        JMenuItem aboutMinesweeperJMenuItem = new JMenuItem("About minesweeper");
-        /* Дополнительный элемент About the developer основного элемента меню Help */
-        JMenuItem aboutTheDeveloperJMenuItem = new JMenuItem("About the developer");
+        JMenuItem exitJMenuItem = new JMenuItem("Выход");
 
         /* Добавление дополнительного элемента New в основной элемент меню Game */
         gameJMenu.add(newJMenuItem);
@@ -97,11 +94,6 @@ public class Minesweeper extends JFrame {
         /* Добавление дополнительного элемента Exit в основной элемент меню Game */
         gameJMenu.add(exitJMenuItem);
 
-        /* Добавление дополнительного элемента About minesweeper в основной элемент меню Help */
-        helpJMenu.add(aboutMinesweeperJMenuItem);
-        /* Дополнительный элемент About the developer основного элемента меню Help */
-        helpJMenu.add(aboutTheDeveloperJMenuItem);
-
         /* Добавление компонента jMenuBar в окно приложения */
         add(jMenuBar, BorderLayout.NORTH);
 
@@ -115,39 +107,20 @@ public class Minesweeper extends JFrame {
 
         /* Регистрация слушателя события дополнительного элемента Intermediate */
         intermediateJMenuItem.addActionListener(e -> {
-            /* Вызов конструктора класса Game */
-            game = new Game(32, 32, 20);
-            /* Вызов метода initNewGame класса Game */
-            game.initNewGame();
-            /* Обновление JPanel */
-            jPanel.repaint();
+            /* Вызов метода initMinesweeper класса Minesweeper */
+            initMinesweeper(32, 32, 20);
+        });
+
+        /* Регистрация слушателя события дополнительного элемента Expert */
+        expertJMenuItem.addActionListener(e -> {
+            /* Вызов метода initMinesweeper класса Minesweeper */
+            initMinesweeper(48, 48, 30);
         });
 
         /* Регистрация слушателя события дополнительного элемента Exit */
         exitJMenuItem.addActionListener(e -> {
             /* Выход и завершение работы приложения */
             System.exit(1);
-        });
-
-        /* Регистрация слушателя события дополнительного элемента About minesweeper */
-        aboutMinesweeperJMenuItem.addActionListener(e -> {
-            /* Вызов метода initJOptionPane класса Main */
-            initJOptionPane("""
-                    Игрок открывает ячейки, стараясь не открыть ячейку с миной. Открыв ячейку с миной,
-                    он проигрывает. Если под открытой ячейкой мины нет, то в ней появляется число,
-                    показывающее, сколько ячеек, соседствующих с только что открытой, «заминировано»
-                    используя эти числа, игрок пытается рассчитать расположение мин, однако иногда
-                    даже в середине и в конце игры некоторые ячейки всё же приходится открывать наугад.
-                    Если под соседними ячейками тоже нет мин, то открывается некоторая «не заминированная»
-                    область до ячеек, в которых есть цифры. «Заминированные» ячейки игрок может пометить,
-                    чтобы случайно не открыть их. Открыв все «не заминированные» ячейки, игрок выигрывает.
-                    """);
-        });
-
-        /* Регистрация слушателя события дополнительного элемента About the developer */
-        aboutTheDeveloperJMenuItem.addActionListener(e -> {
-            /* Вызов метода initJOptionPane класса Main */
-            initJOptionPane("Developed By Kulabuhov98 © 2023");
         });
     }
 
