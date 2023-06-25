@@ -129,10 +129,12 @@ public class Minesweeper extends JFrame {
         });
     }
 
-    /* Инициализация JOptionPane */
-    private void initJOptionPane(String message) {
-        /* Сообщение пользователю */
-        JOptionPane.showMessageDialog(jPanel, message);
+    /* Определение победы в игре */
+    private void checkGameWin() {
+        /* Если текущее состояние игры - победа в игре */
+        if (game.getGameState() == GameStateEnum.WINNER)
+            /* Сообщение пользователю */
+            JOptionPane.showMessageDialog(jPanel, "Игровое поле разминировано полностью.");
     }
 
     /* Инициализация JPanel */
@@ -173,6 +175,9 @@ public class Minesweeper extends JFrame {
                 if (e.getButton() == MouseEvent.BUTTON3)
                     /* Вызов метода pressRightMouseButton класса Game */
                     game.pressRightMouseButton(coordinateSystem);
+
+                /* Вызов метода checkGameWin класса Minesweeper */
+                checkGameWin();
                 /* Обновление JPanel */
                 jPanel.repaint();
             }
