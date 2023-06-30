@@ -28,7 +28,7 @@ class MapLayerBottom {
         return numberOfBombs;
     }
 
-    /* Получение элемента перечисления из карты для объектов нижнего слоя с указаннами координатами */
+    /* Получение элемента перечисления из карты для объектов нижнего слоя с указанными координатами */
     ImagesEnum getImageEnum(CoordinateSystem coordinateSystem) {
         /* Вызов метода getImageEnum класса MapMatrix */
         return mapLayerBottom.getImageEnum(coordinateSystem);
