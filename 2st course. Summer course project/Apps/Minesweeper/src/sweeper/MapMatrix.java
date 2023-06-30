@@ -14,20 +14,20 @@ class MapMatrix {
             matrix[coordinateSystem.x][coordinateSystem.y] = imagesEnum;
     }
 
-    /* Получение элемента перечисления из матрицы с указаннами координатами */
+    /* Получение элемента перечисления из матрицы с указанными координатами */
     ImagesEnum getImageEnum(CoordinateSystem coordinateSystem) {
         /* Находится ли указанная координата на игровом поле */
         if (Ranges.inRangePlayingField(coordinateSystem))
-            /* Получение элемента перечисления из ячейки матрицы с указаннами координатами */
+            /* Получение элемента перечисления из ячейки матрицы с указанными координатами */
             return matrix[coordinateSystem.x][coordinateSystem.y];
         return null;
     }
 
-    /* Установка элемента перечисления в матрицу с указаннами координатами */
+    /* Установка элемента перечисления в матрицу с указанными координатами */
     void setImageEnum(CoordinateSystem coordinateSystem, ImagesEnum imagesEnum) {
         /* Находится ли указанная координата на игровом поле */
         if (Ranges.inRangePlayingField(coordinateSystem))
-            /* Установка элемента перечисления в ячейку матрицу с указаннами координатами */
+            /* Установка элемента перечисления в ячейку матрицу с указанными координатами */
             matrix[coordinateSystem.x][coordinateSystem.y] = imagesEnum;
     }
 }
