@@ -194,7 +194,7 @@ public class Minesweeper extends JFrame {
         /* Действие при завершении приложения */
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         /* Заголовок окна приложения */
-        setTitle("Minesweeper");
+        setTitle("Minesweeper XXX");
         /* Возможность изменения размеров окна приложения */
         setResizable(false);
         /* Отображение окна приложения на экране */
