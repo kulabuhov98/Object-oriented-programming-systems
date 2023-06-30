@@ -20,7 +20,7 @@ class MapLayerTop {
         return numberOfClosedCells;
     }
 
-    /* Получение элемента перечисления из карты для объектов верхнего слоя с указаннами координатами */
+    /* Получение элемента перечисления из карты для объектов верхнего слоя с указанными координатами */
     ImagesEnum getImageEnum(CoordinateSystem coordinateSystem) {
         /* Вызов метода getImageEnum класса MapMatrix */
         return mapLayerTop.getImageEnum(coordinateSystem);
@@ -30,7 +30,7 @@ class MapLayerTop {
     void setOpenedCell(CoordinateSystem coordinateSystem) {
         /* Вызов метода setImageEnum класса MapMatrix */
         mapLayerTop.setImageEnum(coordinateSystem, ImagesEnum.OPENED);
-        /* Уменьшее количества закрытых ячеек на игровом поле */
+        /* Уменьшение количества закрытых ячеек на игровом поле */
         numberOfClosedCells--;
     }
 
@@ -68,7 +68,7 @@ class MapLayerTop {
             mapLayerTop.setImageEnum(coordinates, ImagesEnum.NOBOMB);
     }
 
-    /* Переключатель элемента перечисления FLAGGED и CLOSED в уканной координате */
+    /* Переключатель элемента перечисления FLAGGED и CLOSED в указанной координате */
     void toggleFlagedCell(CoordinateSystem coordinateSystem) {
         /* Получение текущего элемента перечисления в указанной координате */
         switch (mapLayerTop.getImageEnum(coordinateSystem)) {
